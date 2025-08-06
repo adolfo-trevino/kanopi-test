@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/banner",
+  "version": "1.0.0",
+  "title": "Banner",
+  "category": "media",
+  "icon": "format-image",
+  "description": "A banner with text and background image.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Banner Title"
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "p",
+      "default": "Banner content goes here..."
+    },
+    "backgroundImg": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImgID": {
+      "type": "number",
+      "default": 0
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Banner Title",
+      "content": "This is an example banner with text and background image.",
+      "backgroundImg": "https://s.w.org/images/core/5.3/Windbuchencom.jpg"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
