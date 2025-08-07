@@ -1,0 +1,108 @@
+/* Universal Styles */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base typography */
+body {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Links */
+a {
+  color: #0073aa;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons */
+button,
+input[type="button"],
+input[type="submit"] {
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  color: #333;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background: #eee;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+.margin-bottom {
+  margin-bottom: 1em;
+}
+
+.margin-left {
+  margin-left: 1em;
+}
+
+.margin-right {
+  margin-right: 1em;
+}
+
+.padding-top {
+  padding-top: 1em;
+}
+
+.padding-bottom {
+  padding-bottom: 1em;
+}
+
+.padding-left {
+  padding-left: 1em;
+}
+
+.padding-right {
+  padding-right: 1em;
+}

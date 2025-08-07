@@ -3,16 +3,27 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
-	background-size: cover;
-	background-position: center;
+	flex-direction: row;
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
 	
+	.hero-image {
+		width: 50%;
+		&.hero-image--position-left {
+			order: -1;
+		}
+		
+	}
 	.hero-content {
 		text-align: center;
 		padding: 2rem;
 		background-color: rgba(255, 255, 255, 0.8);
 		border-radius: 8px;
-		max-width: 600px;
+		width: 50%;
 		
 		.hero-title {
 			margin-top: 0;

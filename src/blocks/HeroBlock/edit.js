@@ -1,5 +1,5 @@
 import { useBlockProps, MediaUpload, RichText, InspectorControls, URLInput } from '@wordpress/block-editor';
-import { PanelBody, TextControl, Button, FocalPointPicker } from '@wordpress/components';
+import { PanelBody, TextControl, Button, FocalPointPicker, InnerBlocks, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -7,8 +7,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { 
 		title, 
 		content, 
-		backgroundImg, 
-		backgroundImgID, 
+		heroImage, 
+		heroImageID, 
+		imagePosition,
 		primaryButtonText, 
 		primaryButtonUrl, 
 		secondaryButtonText, 
@@ -16,25 +17,21 @@ export default function Edit( { attributes, setAttributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'wp-block-knopi-hero-block',
-		style: {
-			backgroundImage: backgroundImg ? `url(${ backgroundImg })` : 'none',
-			backgroundSize: 'cover',
-			backgroundPosition: 'center',
-		},
+		className: 'wp-block-knopi-hero-block'
+		
 	} );
 
 	const onSelectImage = ( media ) => {
 		setAttributes( {
-			backgroundImg: media.url,
-			backgroundImgID: media.id,
+			heroImage: media.url,
+			heroImageID: media.id,
 		} );
 	};
 
 	const onRemoveImage = () => {
 		setAttributes( {
-			backgroundImg: '',
-			backgroundImgID: 0,
+			heroImage: '',
+			heroImageID: 0,
 		} );
 	};
 
@@ -42,31 +39,17 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Hero Settings', 'kanopi' ) }>
-					<div style={ { marginBottom: '20px' } }>
-						<MediaUpload
-							onSelect={ onSelectImage }
-							allowedTypes={ [ 'image' ] }
-							value={ backgroundImgID }
-							render={ ( { open } ) => (
-								<Button
-									variant="secondary"
-									onClick={ open }
-									style={ { marginRight: '10px' } }
-								>
-									{ backgroundImg
-										? __( 'Change Background Image', 'kanopi' )
-										: __( 'Select Background Image', 'kanopi' ) }
-								</Button>
-							) }
-						/>
-						{ backgroundImg && (
-							<Button variant="secondary" onClick={ onRemoveImage }>
-								{ __( 'Remove', 'kanopi' ) }
-							</Button>
-						) }
-					</div>
-					
-					<PanelBody title={ __( 'Primary Button', 'kanopi' ) } initialOpen={ true }>
+					  <SelectControl
+						label="Image Position"
+						value={attributes.imagePosition}
+						onChange={(value) => setAttributes({ imagePosition: value })}
+						options={[
+						{ label: "Right", value: "right" },
+						{ label: "Left", value: "left" },
+						]}
+					/>
+				</PanelBody>		
+									<PanelBody title={ __( 'Primary Button', 'kanopi' ) } initialOpen={ true }>
 						<TextControl
 							label={ __( 'Button Text', 'kanopi' ) }
 							value={ primaryButtonText }
@@ -90,32 +73,60 @@ export default function Edit( { attributes, setAttributes } ) {
 							value={ secondaryButtonUrl }
 							onChange={ ( value ) => setAttributes( { secondaryButtonUrl: value } ) }
 						/>
-					</PanelBody>
-				</PanelBody>
+					</PanelBody>	
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="hero-content">
-					<RichText
-						tagName="h1"
-						value={ title }
-						onChange={ ( value ) => setAttributes( { title: value } ) }
-						placeholder={ __( 'Hero Title', 'kanopi' ) }
-						className="hero-title"
-					/>
-					<RichText
-						tagName="p"
-						value={ content }
-						onChange={ ( value ) => setAttributes( { content: value } ) }
-						placeholder={ __( 'Hero Content', 'kanopi' ) }
-						className="hero-content-text"
-					/>
-					<div className="hero-buttons">
-						<Button variant="primary" href={ primaryButtonUrl }>
-							{ primaryButtonText }
-						</Button>
-						<Button variant="secondary" href={ secondaryButtonUrl }>
-							{ secondaryButtonText }
-						</Button>
+				<div className="container">
+					<div className="hero-content">
+						<RichText
+							tagName="h1"
+							value={ title }
+							onChange={ ( value ) => setAttributes( { title: value } ) }
+							placeholder={ __( 'Hero Title', 'kanopi' ) }
+							className="hero-title"
+						/>
+						<RichText
+							tagName="p"
+							value={ content }
+							onChange={ ( value ) => setAttributes( { content: value } ) }
+							placeholder={ __( 'Hero Content', 'kanopi' ) }
+							className="hero-content-text"
+						/>
+						<div className="hero-buttons">
+							<Button variant="primary" href={ primaryButtonUrl }>
+								{ primaryButtonText }
+							</Button>
+							<Button variant="secondary" href={ secondaryButtonUrl }>
+								{ secondaryButtonText }
+							</Button>
+						</div>
+					</div>
+					<div className={`hero-image hero-image--position-${imagePosition}`}>
+						{heroImage && (
+							<img src={heroImage} alt="Hero" />
+						)}
+						<MediaUpload
+							onSelect={onSelectImage}
+							allowedTypes={['image']}
+							value={heroImageID}
+							render={({ open }) => (
+								<Button 
+									className={heroImageID ? 'image-button' : ''}
+									onClick={open}
+									variant={heroImageID ? 'secondary' : 'primary'}
+								>
+									{heroImageID ? __('Replace Image', 'kanopi') : __('Upload Image', 'kanopi')}
+								</Button>
+							)}
+						/>
+						{heroImageID && (
+							<Button 
+								onClick={onRemoveImage}
+								variant="secondary"
+							>
+								{__('Remove Image', 'kanopi')}
+							</Button>
+						)}
 					</div>
 				</div>
 			</div>

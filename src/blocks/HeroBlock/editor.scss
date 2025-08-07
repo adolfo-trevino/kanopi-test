@@ -6,13 +6,26 @@
 	position: relative;
 	background-size: cover;
 	background-position: center;
+	.container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
 	
+	.hero-image {
+		width: 50%;
+		&.hero-image--position-left {
+			order: -1;
+		}
+		
+	}
 	.hero-content {
+		width: 50%;
 		text-align: center;
 		padding: 2rem;
 		background-color: rgba(255, 255, 255, 0.8);
 		border-radius: 8px;
-		max-width: 600px;
+
 		
 		.hero-title {
 			margin-top: 0;
@@ -32,6 +45,18 @@
 			.components-button {
 				margin: 0;
 			}
+		}
+	}
+
+	.hero-image {
+		.components-button {
+			margin: 0.5rem;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
 		}
 	}
 }

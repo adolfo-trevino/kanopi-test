@@ -20,6 +20,11 @@
     }
   },
   "attributes": {
+    "imagePosition": {
+      "type": "string",
+      "enum": ["left", "right"],
+      "default": "right"
+    },
     "title": {
       "type": "string",
       "source": "html",
@@ -32,11 +37,11 @@
       "selector": "p",
       "default": "Hero content goes here..."
     },
-    "backgroundImg": {
+    "heroImage": {
       "type": "string",
       "default": ""
     },
-    "backgroundImgID": {
+    "heroImageID": {
       "type": "number",
       "default": 0
     },
@@ -46,7 +51,7 @@
     },
     "primaryButtonUrl": {
       "type": "string",
-      "default": "#"
+      "default": ""
     },
     "secondaryButtonText": {
       "type": "string",
@@ -54,14 +59,14 @@
     },
     "secondaryButtonUrl": {
       "type": "string",
-      "default": "#"
+      "default": ""
     }
   },
   "example": {
     "attributes": {
       "title": "Welcome to Our Website",
       "content": "This is a hero section with a background image and call-to-action buttons.",
-      "backgroundImg": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+      "heroImage": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
       "primaryButtonText": "Get Started",
       "primaryButtonUrl": "#",
       "secondaryButtonText": "Learn More",
@@ -70,5 +75,5 @@
   },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-style.css"
 }
