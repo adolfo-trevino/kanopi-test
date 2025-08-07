@@ -1,0 +1,62 @@
+.wp-block-knopi-our-team {
+	padding: 2rem 0;
+	
+	.our-team-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		
+		.our-team-title {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		
+		.our-team-description {
+			margin-top: 0;
+			margin-bottom: 0;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	
+	.our-team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		
+		.team-member {
+			text-align: center;
+			
+			.team-member-image {
+				img {
+					width: 100%;
+					height: 300px;
+					object-fit: cover;
+					border-radius: 8px;
+				}
+			}
+			
+			.team-member-content {
+				padding: 1.5rem 0;
+				
+				.team-member-name {
+					margin-top: 0;
+					margin-bottom: 0.5rem;
+					font-size: 1.25rem;
+				}
+				
+				.team-member-title {
+					margin-top: 0;
+					margin-bottom: 1rem;
+					color: #0073aa;
+					font-style: italic;
+				}
+				
+				.team-member-description {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

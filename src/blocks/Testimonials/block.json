@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/testimonials",
+  "version": "1.0.0",
+  "title": "Testimonials",
+  "category": "layout",
+  "icon": "format-quote",
+  "description": "A section to display customer testimonials with photos, names, and quotes.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "testimonials": {
+      "type": "array",
+      "default": [
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "name": "Customer 1",
+          "title": "Position",
+          "quote": "Quote from customer 1"
+        },
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "name": "Customer 2",
+          "title": "Position",
+          "quote": "Quote from customer 2"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "What Our Customers Say"
+    },
+    "description": {
+      "type": "string",
+      "default": "Don't just take our word for it - hear from our satisfied customers."
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "What Our Customers Say",
+      "description": "Don't just take our word for it - hear from our satisfied customers.",
+      "testimonials": [
+        {
+          "imageId": 1,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "name": "John Doe",
+          "title": "CEO, Company A",
+          "quote": "This service has completely transformed our business operations."
+        },
+        {
+          "imageId": 2,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "name": "Jane Smith",
+          "title": "Marketing Director, Company B",
+          "quote": "The team delivered beyond our expectations. Highly recommended!"
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

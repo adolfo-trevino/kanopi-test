@@ -1,0 +1,30 @@
+.wp-block-knopi-logos {
+	padding: 2rem 0;
+	
+	.logos-title {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	
+	.logos-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 2rem;
+		justify-items: center;
+		
+		.logo-item {
+			text-align: center;
+			
+			img {
+				max-width: 100%;
+				height: auto;
+				max-height: 100px;
+				object-fit: contain;
+			}
+		}
+	}
+	
+	.components-placeholder {
+		min-height: 200px;
+	}
+}

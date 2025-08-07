@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/services",
+  "version": "1.0.0",
+  "title": "Services",
+  "category": "layout",
+  "icon": "admin-tools",
+  "description": "A section to display services with icons, titles, and descriptions.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "admin-tools",
+          "title": "Service 1",
+          "description": "Description for service 1"
+        },
+        {
+          "icon": "admin-customizer",
+          "title": "Service 2",
+          "description": "Description for service 2"
+        },
+        {
+          "icon": "admin-settings",
+          "title": "Service 3",
+          "description": "Description for service 3"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "Our Services"
+    },
+    "description": {
+      "type": "string",
+      "default": "We offer a wide range of services to help your business grow."
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Our Services",
+      "description": "We offer a wide range of services to help your business grow.",
+      "services": [
+        {
+          "icon": "admin-tools",
+          "title": "Web Development",
+          "description": "Custom websites built with the latest technologies."
+        },
+        {
+          "icon": "admin-customizer",
+          "title": "Design",
+          "description": "Beautiful designs that capture your brand identity."
+        },
+        {
+          "icon": "admin-settings",
+          "title": "Consulting",
+          "description": "Expert advice to help you make the right decisions."
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

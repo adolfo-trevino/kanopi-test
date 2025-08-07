@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/our-team",
+  "version": "1.0.0",
+  "title": "Our Team",
+  "category": "layout",
+  "icon": "groups",
+  "description": "A section to display team members with photos, names, titles, and descriptions.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "teamMembers": {
+      "type": "array",
+      "default": [
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "name": "Team Member 1",
+          "title": "Position",
+          "description": "Description for team member 1"
+        },
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "name": "Team Member 2",
+          "title": "Position",
+          "description": "Description for team member 2"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "Our Team"
+    },
+    "description": {
+      "type": "string",
+      "default": "Meet the talented individuals behind our success."
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Our Team",
+      "description": "Meet the talented individuals behind our success.",
+      "teamMembers": [
+        {
+          "imageId": 1,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "name": "John Doe",
+          "title": "CEO",
+          "description": "John has over 10 years of experience in the industry."
+        },
+        {
+          "imageId": 2,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "name": "Jane Smith",
+          "title": "CTO",
+          "description": "Jane is a technology expert with a passion for innovation."
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

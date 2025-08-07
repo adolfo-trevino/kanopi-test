@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/hero-block",
+  "version": "1.0.0",
+  "title": "Hero Block",
+  "category": "layout",
+  "icon": "slides",
+  "description": "A hero section with title, content, and call-to-action buttons.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h1",
+      "default": "Hero Title"
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "p",
+      "default": "Hero content goes here..."
+    },
+    "backgroundImg": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImgID": {
+      "type": "number",
+      "default": 0
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "default": "Primary Button"
+    },
+    "primaryButtonUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Secondary Button"
+    },
+    "secondaryButtonUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Welcome to Our Website",
+      "content": "This is a hero section with a background image and call-to-action buttons.",
+      "backgroundImg": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+      "primaryButtonText": "Get Started",
+      "primaryButtonUrl": "#",
+      "secondaryButtonText": "Learn More",
+      "secondaryButtonUrl": "#"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

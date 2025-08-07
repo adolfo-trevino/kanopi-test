@@ -1,0 +1,83 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/working-process",
+  "version": "1.0.0",
+  "title": "Working Process",
+  "category": "layout",
+  "icon": "networking",
+  "description": "A section to display the working process steps with icons, titles, and descriptions.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "processSteps": {
+      "type": "array",
+      "default": [
+        {
+          "number": "1",
+          "title": "Step 1",
+          "description": "Description for step 1"
+        },
+        {
+          "number": "2",
+          "title": "Step 2",
+          "description": "Description for step 2"
+        },
+        {
+          "number": "3",
+          "title": "Step 3",
+          "description": "Description for step 3"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "Our Working Process"
+    },
+    "description": {
+      "type": "string",
+      "default": "Discover how we work to deliver exceptional results."
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Our Working Process",
+      "description": "Discover how we work to deliver exceptional results.",
+      "processSteps": [
+        {
+          "number": "1",
+          "title": "Discovery",
+          "description": "We start by understanding your goals and requirements."
+        },
+        {
+          "number": "2",
+          "title": "Design",
+          "description": "Our team creates a tailored solution for your project."
+        },
+        {
+          "number": "3",
+          "title": "Development",
+          "description": "We build and test the solution to ensure quality."
+        },
+        {
+          "number": "4",
+          "title": "Delivery",
+          "description": "We deploy and provide ongoing support for your project."
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

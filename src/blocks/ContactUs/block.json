@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/contact-us",
+  "version": "1.0.0",
+  "title": "Contact Us",
+  "category": "layout",
+  "icon": "email",
+  "description": "A section with contact information and a contact form.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Get In Touch"
+    },
+    "description": {
+      "type": "string",
+      "default": "Have questions? We'd love to hear from you."
+    },
+    "address": {
+      "type": "string",
+      "default": "123 Main Street, City, State 12345"
+    },
+    "phone": {
+      "type": "string",
+      "default": "(555) 123-4567"
+    },
+    "email": {
+      "type": "string",
+      "default": "info@example.com"
+    },
+    "hours": {
+      "type": "string",
+      "default": "Monday-Friday: 9am-5pm"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Get In Touch",
+      "description": "Have questions? We'd love to hear from you.",
+      "address": "123 Main Street, City, State 12345",
+      "phone": "(555) 123-4567",
+      "email": "info@example.com",
+      "hours": "Monday-Friday: 9am-5pm"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

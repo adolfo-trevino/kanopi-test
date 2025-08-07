@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "kanopi/case-studies",
+  "version": "1.0.0",
+  "title": "Case Studies",
+  "category": "layout",
+  "icon": "analytics",
+  "description": "A section to display case studies with images, titles, and descriptions.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "caseStudies": {
+      "type": "array",
+      "default": [
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "title": "Case Study 1",
+          "description": "Description for case study 1",
+          "linkText": "Read More",
+          "linkUrl": "#"
+        },
+        {
+          "imageId": 0,
+          "imageUrl": "",
+          "title": "Case Study 2",
+          "description": "Description for case study 2",
+          "linkText": "Read More",
+          "linkUrl": "#"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "Case Studies"
+    },
+    "description": {
+      "type": "string",
+      "default": "Explore our successful projects and case studies."
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Case Studies",
+      "description": "Explore our successful projects and case studies.",
+      "caseStudies": [
+        {
+          "imageId": 1,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "title": "Project Alpha",
+          "description": "How we helped Company A increase their revenue by 40%.",
+          "linkText": "Read More",
+          "linkUrl": "#"
+        },
+        {
+          "imageId": 2,
+          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
+          "title": "Project Beta",
+          "description": "The transformation of Company B's digital presence.",
+          "linkText": "Read More",
+          "linkUrl": "#"
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

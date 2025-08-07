@@ -1,0 +1,95 @@
+.wp-block-knopi-contact-us {
+	padding: 2rem 0;
+	
+	.contact-us-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		
+		.contact-us-title {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		
+		.contact-us-description {
+			margin-top: 0;
+			margin-bottom: 0;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	
+	.contact-us-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		max-width: 1200px;
+		margin: 0 auto;
+		
+		.contact-info {
+			h3 {
+				margin-top: 0;
+			}
+			
+			.contact-details {
+				.contact-detail {
+					margin-bottom: 1rem;
+					
+					strong {
+						display: block;
+					}
+				}
+			}
+		}
+		
+		.contact-form {
+			h3 {
+				margin-top: 0;
+			}
+			
+			.contact-form-fields {
+				.form-field {
+					margin-bottom: 1rem;
+					
+					label {
+						display: block;
+						margin-bottom: 0.5rem;
+					}
+					
+					input,
+					textarea {
+						width: 100%;
+						padding: 0.5rem;
+						border: 1px solid #ccc;
+						border-radius: 4px;
+					}
+					
+					textarea {
+						min-height: 100px;
+					}
+				}
+				
+				.submit-button {
+					background-color: #0073aa;
+					color: white;
+					border: none;
+					padding: 0.75rem 1.5rem;
+					border-radius: 4px;
+					cursor: pointer;
+					font-weight: bold;
+					
+					&:hover {
+						background-color: #005a87;
+					}
+				}
+			}
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.contact-us-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+}

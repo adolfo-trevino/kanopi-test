@@ -1,0 +1,60 @@
+.wp-block-knopi-hero-block {
+	min-height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	
+	.hero-content {
+		text-align: center;
+		padding: 2rem;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 8px;
+		max-width: 600px;
+		
+		.hero-title {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		
+		.hero-content-text {
+			margin-top: 0;
+			margin-bottom: 1.5rem;
+		}
+		
+		.hero-buttons {
+			display: flex;
+			gap: 1rem;
+			justify-content: center;
+			
+			.button {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				text-decoration: none;
+				border-radius: 4px;
+				font-weight: bold;
+				transition: all 0.3s ease;
+				
+				&.primary {
+					background-color: #0073aa;
+					color: white;
+					
+					&:hover {
+						background-color: #005a87;
+					}
+				}
+				
+				&.secondary {
+					background-color: #f0f0f0;
+					color: #333;
+					
+					&:hover {
+						background-color: #ddd;
+					}
+				}
+			}
+		}
+	}
+}

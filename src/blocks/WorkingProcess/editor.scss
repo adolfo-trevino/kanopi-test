@@ -1,0 +1,76 @@
+.wp-block-knopi-working-process {
+	padding: 2rem 0;
+	
+	.working-process-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		
+		.working-process-title {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		
+		.working-process-description {
+			margin-top: 0;
+			margin-bottom: 0;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	
+	.working-process-steps {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+		
+		.working-process-step {
+			display: flex;
+			gap: 2rem;
+			align-items: flex-start;
+			
+			.step-number {
+				flex-shrink: 0;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: #0073aa;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
+			
+			.step-content {
+				flex: 1;
+				
+				.step-title {
+					margin-top: 0;
+					margin-bottom: 1rem;
+				}
+				
+				.step-description {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.working-process-steps {
+			.working-process-step {
+				flex-direction: column;
+				gap: 1rem;
+				
+				.step-number {
+					align-self: flex-start;
+				}
+			}
+		}
+	}
+}
