@@ -5,6 +5,9 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 3rem;
+		@media (min-width: 1440px) {
+			margin-bottom: 4.5rem;
+		}
 		
 		.our-team-title {
 			margin: 0;
@@ -19,6 +22,7 @@
 		.our-team-description {
 			margin: 0;
 			flex: 1;
+			max-width: 600px
 		}
 	}
 	
