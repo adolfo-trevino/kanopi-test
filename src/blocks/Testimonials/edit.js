@@ -127,7 +127,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			<div { ...blockProps }>
 				<div className="container">
 					<div className="testimonials-header">
-						<div className="testimonials-label">Testimonials</div>
+						
 						<RichText
 							tagName="h2"
 							value={ title }

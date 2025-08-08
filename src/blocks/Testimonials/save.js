@@ -11,7 +11,7 @@ export default function Save( { attributes } ) {
 		<div { ...blockProps }>
 			<div className="container">
 				<div className="testimonials-header">
-					<div className="testimonials-label">Testimonials</div>
+				
 					<h2 className="testimonials-title">{ title }</h2>
 					<p className="testimonials-description">{ description }</p>
 				</div>

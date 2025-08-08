@@ -1,7 +1,5 @@
 .wp-block-knopi-testimonials {
 	padding: 4rem 0;
-	background-color: #1e1f29;
-	color: #fff;
 	
 	.container {
 		max-width: 1200px;
@@ -10,36 +8,28 @@
 	}
 	
 	.testimonials-header {
-		text-align: center;
-		margin-bottom: 4rem;
-		
-		.testimonials-label {
-			display: inline-block;
-			background-color: #c5ff65;
-			color: #000;
-			font-weight: bold;
-			padding: 0.5rem 1.5rem;
-			border-radius: 2rem;
-			margin-bottom: 1.5rem;
-			font-size: 1.2rem;
+		display: flex;
+		align-items: center;
+		margin-bottom: 3rem;
+		@media (min-width: 1440px) {
+			margin-bottom: 4.5rem;
 		}
 		
+		
 		.testimonials-title {
-			margin-top: 0;
-			margin-bottom: 1rem;
-			font-size: 2.5rem;
-			color: #fff;
+			margin: 0;
+			padding: 0.5rem 1rem;
+			background-color: #B9FF66;
+			border-radius: 8px;
+			display: inline-block;
+			font-size: 2rem;
+			margin-right: 1.5rem;
 		}
 		
 		.testimonials-description {
-			margin-top: 0;
-			margin-bottom: 0;
-			max-width: 700px;
-			margin-left: auto;
-			margin-right: auto;
-			color: rgba(255, 255, 255, 0.8);
-			font-size: 1.1rem;
-			line-height: 1.6;
+			margin: 0;
+			flex: 1;
+			max-width: 600px;
 		}
 	}
 	
