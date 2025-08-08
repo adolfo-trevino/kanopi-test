@@ -5,11 +5,13 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 3rem;
-		
+		@media (min-width: 1440px) {
+			margin-bottom: 4.5rem;
+		}
 		.our-team-title {
 			margin: 0;
 			padding: 0.5rem 1rem;
-			background-color: #d4ff7f;
+			background-color: #B9FF66;
 			border-radius: 8px;
 			display: inline-block;
 			font-size: 2rem;
@@ -19,6 +21,7 @@
 		.our-team-description {
 			margin: 0;
 			flex: 1;
+			max-width: 600px;
 		}
 	}
 	

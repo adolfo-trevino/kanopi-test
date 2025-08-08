@@ -1,7 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function Save( { attributes } ) {
-	const { processSteps, title, subtitle, description } = attributes;
+	const { processSteps, title, description } = attributes;
 
 	const blockProps = useBlockProps.save( {
 		className: 'wp-block-knopi-working-process',
@@ -9,9 +9,9 @@ export default function Save( { attributes } ) {
 
 	return (
 		<div { ...blockProps }>
+			<div className="container">
 			<div className="working-process-header">
 				<h2 className="working-process-title">{ title }</h2>
-				<p className="working-process-subtitle">{ subtitle }</p>
 				<p className="working-process-description">{ description }</p>
 			</div>
 			<div className="working-process-steps" id="working-process-accordion">
@@ -32,6 +32,7 @@ export default function Save( { attributes } ) {
 						</div>
 					</div>
 				) ) }
+			</div>
 			</div>
 		</div>
 	);

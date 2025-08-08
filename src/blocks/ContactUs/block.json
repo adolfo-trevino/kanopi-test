@@ -22,37 +22,31 @@
   "attributes": {
     "title": {
       "type": "string",
-      "default": "Get In Touch"
+      "default": "Contact Us"
     },
-    "description": {
+    "subtitle": {
       "type": "string",
-      "default": "Have questions? We'd love to hear from you."
+      "default": "Connect with Us: Let's Discuss Your Digital Marketing Needs"
     },
-    "address": {
-      "type": "string",
-      "default": "123 Main Street, City, State 12345"
+    "backgroundImage": {
+      "type": "object",
+      "default": {}
     },
-    "phone": {
+    "formBackgroundColor": {
       "type": "string",
-      "default": "(555) 123-4567"
+      "default": "#f5f5f5"
     },
-    "email": {
+    "messageType": {
       "type": "string",
-      "default": "info@example.com"
-    },
-    "hours": {
-      "type": "string",
-      "default": "Monday-Friday: 9am-5pm"
+      "default": "sayHi"
     }
   },
   "example": {
     "attributes": {
-      "title": "Get In Touch",
-      "description": "Have questions? We'd love to hear from you.",
-      "address": "123 Main Street, City, State 12345",
-      "phone": "(555) 123-4567",
-      "email": "info@example.com",
-      "hours": "Monday-Friday: 9am-5pm"
+      "title": "Contact Us",
+      "subtitle": "Connect with Us: Let's Discuss Your Digital Marketing Needs",
+      "messageType": "sayHi",
+      "formBackgroundColor": "#f5f5f5"
     }
   },
   "editorScript": "file:./index.js",

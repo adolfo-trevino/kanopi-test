@@ -1,59 +1,74 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function Save( { attributes } ) {
-	const { title, description, address, phone, email, hours } = attributes;
+	const { title, subtitle, backgroundImage, formBackgroundColor, messageType } = attributes;
 
 	const blockProps = useBlockProps.save( {
 		className: 'wp-block-knopi-contact-us',
 	} );
 
+	const formStyle = {
+		backgroundColor: formBackgroundColor || '#f5f5f5',
+	};
+
+	const backgroundImageStyle = backgroundImage?.url ? {
+		backgroundImage: `url(${backgroundImage.url})`,
+	} : {};
+
 	return (
 		<div { ...blockProps }>
-			<div className="contact-us-header">
-				<h2 className="contact-us-title">{ title }</h2>
-				<p className="contact-us-description">{ description }</p>
+			<div className="contact-us-header" style={backgroundImageStyle}>
+				<div className="contact-title-container">
+					<h2 className="contact-us-title">{ title }</h2>
+				</div>
+				<p className="contact-us-subtitle">{ subtitle }</p>
 			</div>
 			<div className="contact-us-content">
-				<div className="contact-info">
-					<h3>Contact Information</h3>
-					<div className="contact-details">
-						<div className="contact-detail">
-							<strong>Address:</strong>
-							<span className="contact-address">{ address }</span>
+				<div className="contact-form-container" style={formStyle}>
+					<div className="message-type-selector">
+						<div className={`message-type-option ${messageType === 'sayHi' ? 'selected' : ''}`}>
+							<input
+								type="radio"
+								id="sayHi"
+								name="messageType"
+								checked={messageType === 'sayHi'}
+								readOnly
+							/>
+							<label htmlFor="sayHi">Say Hi</label>
 						</div>
-						<div className="contact-detail">
-							<strong>Phone:</strong>
-							<span className="contact-phone">{ phone }</span>
-						</div>
-						<div className="contact-detail">
-							<strong>Email:</strong>
-							<span className="contact-email">{ email }</span>
-						</div>
-						<div className="contact-detail">
-							<strong>Hours:</strong>
-							<span className="contact-hours">{ hours }</span>
+						<div className={`message-type-option ${messageType === 'getQuote' ? 'selected' : ''}`}>
+							<input
+								type="radio"
+								id="getQuote"
+								name="messageType"
+								checked={messageType === 'getQuote'}
+								readOnly
+							/>
+							<label htmlFor="getQuote">Get a Quote</label>
 						</div>
 					</div>
-				</div>
-				<div className="contact-form">
-					<h3>Send Us a Message</h3>
 					<form className="contact-form-fields">
 						<div className="form-field">
 							<label htmlFor="name">Name</label>
-							<input type="text" id="name" placeholder="Your Name" />
+							<input type="text" id="name" placeholder="Name" />
 						</div>
 						<div className="form-field">
-							<label htmlFor="email">Email</label>
-							<input type="email" id="email" placeholder="Your Email" />
+							<label htmlFor="email">Email<span className="required">*</span></label>
+							<input type="email" id="email" placeholder="Email" required />
 						</div>
 						<div className="form-field">
-							<label htmlFor="message">Message</label>
-							<textarea id="message" placeholder="Your Message"></textarea>
+							<label htmlFor="message">Message<span className="required">*</span></label>
+							<textarea id="message" placeholder="Message" required></textarea>
 						</div>
 						<button type="submit" className="submit-button">
 							Send Message
 						</button>
 					</form>
+					<div className="decorative-elements">
+						<div className="star-element star-dark"></div>
+						<div className="star-element star-light"></div>
+						<div className="lines-element"></div>
+					</div>
 				</div>
 			</div>
 		</div>

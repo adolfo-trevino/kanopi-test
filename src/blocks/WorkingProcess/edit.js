@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { processSteps, title, subtitle, description } = attributes;
+	const { processSteps, title, description } = attributes;
 
 	const blockProps = useBlockProps( {
 		className: 'wp-block-knopi-working-process',
@@ -33,17 +33,13 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<>
+		<div className="container">
 			<InspectorControls>
 				<PanelBody title={ __( 'Working Process Settings', 'kanopi' ) }>
 					<TextControl
 						label={ __( 'Section Title', 'kanopi' ) }
 						value={ title }
 						onChange={ ( value ) => setAttributes( { title: value } ) }
-					/>
-					<TextControl
-						label={ __( 'Section Subtitle', 'kanopi' ) }
-						value={ subtitle }
-						onChange={ ( value ) => setAttributes( { subtitle: value } ) }
 					/>
 					<TextareaControl
 						label={ __( 'Section Description', 'kanopi' ) }
@@ -102,13 +98,6 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<RichText
 						tagName="p"
-						value={ subtitle }
-						onChange={ ( value ) => setAttributes( { subtitle: value } ) }
-						placeholder={ __( 'Section Subtitle', 'kanopi' ) }
-						className="working-process-subtitle"
-					/>
-					<RichText
-						tagName="p"
 						value={ description }
 						onChange={ ( value ) => setAttributes( { description: value } ) }
 						placeholder={ __( 'Section Description', 'kanopi' ) }
@@ -146,6 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						</div>
 					) ) }
 				</div>
+			</div>
 			</div>
 		</>
 	);

@@ -59,10 +59,6 @@
       "type": "string",
       "default": "Our Working Process"
     },
-    "subtitle": {
-      "type": "string",
-      "default": "Step-by-Step Guide to Achieving Your Business Goals"
-    },
     "description": {
       "type": "string",
       "default": "Discover how we work to deliver exceptional results."
@@ -71,7 +67,6 @@
   "example": {
     "attributes": {
       "title": "Our Working Process",
-      "subtitle": "Step-by-Step Guide to Achieving Your Business Goals",
       "description": "Discover how we work to deliver exceptional results.",
       "processSteps": [
         {
