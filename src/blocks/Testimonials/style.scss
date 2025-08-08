@@ -40,8 +40,8 @@
 	
 	.testimonials-slider-container {
 		position: relative;
-		padding: 0 2rem;
-		background-color: #191A23;
+		padding: 4.5rem 0;
+		background-color: #191A23;		
 		border-radius: 2.8rem;
 		.testimonial {
 			position: relative;
@@ -79,10 +79,11 @@
 				}
 				
 				.testimonial-author {
-					text-align: center;
+					text-align: left;
 					margin-top: 1.5rem;
 					
 					.author-info {
+						
 						.author-name {
 							margin: 0;
 							font-size: 1.2rem;

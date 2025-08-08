@@ -20,6 +20,7 @@ module.exports = {
 		'blocks/OurTeam/style': path.resolve( __dirname, 'src/blocks/OurTeam/style.scss' ),
 		'blocks/Testimonials/index': path.resolve( __dirname, 'src/blocks/Testimonials/index.js' ),
 		'blocks/Testimonials/style': path.resolve( __dirname, 'src/blocks/Testimonials/style.scss' ),
+		'blocks/Testimonials/frontend': path.resolve( __dirname, 'src/blocks/Testimonials/frontend.js' ),
 		'blocks/ContactUs/index': path.resolve( __dirname, 'src/blocks/ContactUs/index.js' ),
 		'blocks/ContactUs/style': path.resolve( __dirname, 'src/blocks/ContactUs/style.scss' ),
 	},
