@@ -1,6 +1,5 @@
 .wp-block-knopi-banner {
 	padding: 3rem 0;
-	background-color: #f5f5f5;
 	color: #000000;
 	position: relative;
 	overflow: hidden;
@@ -16,11 +15,25 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
+		border-radius: 2rem;
+		padding: 1rem 4rem;
 	}
 
 	.banner-text {
 		flex: 1;
-		max-width: 600px;
+		max-width: 500px;
+		.banner-title {
+			font-size: 2.5rem;
+			font-weight: 500;
+			margin-bottom: 1.5rem;
+			line-height: 1.2;
+		}
+		.banner-content {
+			font-size: 1.125rem;
+			line-height: 1.6;
+			margin-bottom: 2rem;
+			font-weight: 300;
+		}
 	}
 
 	.banner-image {
@@ -28,7 +41,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		position: relative;
+		
 	}
 
 	.banner-foreground-image {

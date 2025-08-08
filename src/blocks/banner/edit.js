@@ -142,7 +142,9 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<div { ...blockProps }>
 				<div className="container">
-					<div className="banner-content-wrapper">
+					<div className="banner-content-wrapper"
+					style={ { backgroundColor: backgroundColor } }
+					>
 						<div className="banner-text">
 							<RichText
 								tagName="h2"

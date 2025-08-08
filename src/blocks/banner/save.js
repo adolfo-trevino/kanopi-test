@@ -15,8 +15,7 @@ export default function Save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className: 'wp-block-knopi-banner',
-		style: {
-			backgroundColor: backgroundColor,
+		style: {			
 			color: textColor,
 			textAlign: textAlign,
 		},
@@ -25,7 +24,9 @@ export default function Save( { attributes } ) {
 	return (
 		<div { ...blockProps }>
 			<div className="container">
-				<div className="banner-content-wrapper">
+				<div className="banner-content-wrapper"
+				style={ { backgroundColor: backgroundColor } }>
+				
 					<div className="banner-text">
 						<h2 className="banner-title">{ title }</h2>
 						<p className="banner-content">{ content }</p>
