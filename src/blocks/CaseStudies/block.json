@@ -6,7 +6,7 @@
   "title": "Case Studies",
   "category": "layout",
   "icon": "analytics",
-  "description": "A section to display case studies with images, titles, and descriptions.",
+  "description": "A section to display case studies with titles, descriptions, and call to actions.",
   "supports": {
     "html": false,
     "align": true,
@@ -24,16 +24,12 @@
       "type": "array",
       "default": [
         {
-          "imageId": 0,
-          "imageUrl": "",
           "title": "Case Study 1",
           "description": "Description for case study 1",
           "linkText": "Read More",
           "linkUrl": "#"
         },
         {
-          "imageId": 0,
-          "imageUrl": "",
           "title": "Case Study 2",
           "description": "Description for case study 2",
           "linkText": "Read More",
@@ -56,16 +52,12 @@
       "description": "Explore our successful projects and case studies.",
       "caseStudies": [
         {
-          "imageId": 1,
-          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
           "title": "Project Alpha",
           "description": "How we helped Company A increase their revenue by 40%.",
           "linkText": "Read More",
           "linkUrl": "#"
         },
         {
-          "imageId": 2,
-          "imageUrl": "https://s.w.org/images/core/5.3/Windbuchencom.jpg",
           "title": "Project Beta",
           "description": "The transformation of Company B's digital presence.",
           "linkText": "Read More",

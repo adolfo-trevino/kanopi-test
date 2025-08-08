@@ -24,19 +24,22 @@
       "type": "array",
       "default": [
         {
-          "icon": "admin-tools",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Service 1",
-          "description": "Description for service 1"
+          "cardType": "green"
         },
         {
-          "icon": "admin-customizer",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Service 2",
-          "description": "Description for service 2"
+          "cardType": "green"
         },
         {
-          "icon": "admin-settings",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Service 3",
-          "description": "Description for service 3"
+          "cardType": "green"
         }
       ]
     },
@@ -55,19 +58,22 @@
       "description": "We offer a wide range of services to help your business grow.",
       "services": [
         {
-          "icon": "admin-tools",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Web Development",
-          "description": "Custom websites built with the latest technologies."
+          "cardType": "green"
         },
         {
-          "icon": "admin-customizer",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Design",
-          "description": "Beautiful designs that capture your brand identity."
+          "cardType": "black"
         },
         {
-          "icon": "admin-settings",
+          "imageId": 0,
+          "imageUrl": "",
           "title": "Consulting",
-          "description": "Expert advice to help you make the right decisions."
+          "cardType": "gray"
         }
       ]
     }

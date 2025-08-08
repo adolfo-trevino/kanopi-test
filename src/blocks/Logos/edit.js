@@ -11,6 +11,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	} );
 
 	const onSelectLogo = ( media ) => {
+	
+		if ( logos.length >= 7 ) {
+			return;
+		}
+		
 		const newLogos = [ ...logos, {
 			id: media.id,
 			url: media.url,
@@ -39,8 +44,15 @@ export default function Edit( { attributes, setAttributes } ) {
 							onSelect={ onSelectLogo }
 							allowedTypes={ [ 'image' ] }
 							render={ ( { open } ) => (
-								<Button variant="secondary" onClick={ open }>
-									{ __( 'Add Logo', 'kanopi' ) }
+								<Button 
+									variant="secondary" 
+									onClick={ open }
+									disabled={ logos.length >= 7 }
+								>
+									{ logos.length >= 7 
+										? __( 'Maximum Logos Added', 'kanopi' ) 
+										: __( 'Add Logo', 'kanopi' ) 
+									}
 								</Button>
 							) }
 						/>
@@ -48,45 +60,49 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			<div { ...blockProps }>
-				<RichText
-					tagName="h2"
-					value={ title }
-					onChange={ ( value ) => setAttributes( { title: value } ) }
-					placeholder={ __( 'Section Title', 'kanopi' ) }
-					className="logos-title"
-				/>
-				{ logos.length > 0 ? (
-					<div className="logos-grid">
-						{ logos.map( ( logo, index ) => (
-							<div key={ index } className="logo-item">
-								<img src={ logo.url } alt={ logo.alt } />
-								<Button 
-									variant="secondary" 
-									onClick={ () => removeLogo( index ) }
-									style={ { marginTop: '5px' } }
-								>
-									{ __( 'Remove', 'kanopi' ) }
-								</Button>
+				<div className="container">
+					<RichText
+						tagName="h2"
+						value={ title }
+						onChange={ ( value ) => setAttributes( { title: value } ) }
+						placeholder={ __( 'Section Title', 'kanopi' ) }
+						className="logos-title"
+					/>
+						{ logos.length > 0 ? (
+							<div className="logos-grid">
+								{ logos.map( ( logo, index ) => (
+									logo.url && (
+										<div key={ index } className="logo-item">
+											<img src={ logo.url } alt={ logo.alt } />
+											<Button 
+												variant="secondary" 
+												onClick={ () => removeLogo( index ) }
+												style={ { marginTop: '5px' } }
+											>
+												{ __( 'Remove', 'kanopi' ) }
+										</Button>
+										</div>
+									)
+								) ) }
 							</div>
-						) ) }
-					</div>
-				) : (
-					<Placeholder
-						icon="groups"
-						label={ __( 'Logos', 'kanopi' ) }
-						instructions={ __( 'Add logos to display in this section.', 'kanopi' ) }
-					>
-						<MediaUpload
-							onSelect={ onSelectLogo }
-							allowedTypes={ [ 'image' ] }
-							render={ ( { open } ) => (
-								<Button variant="primary" onClick={ open }>
-									{ __( 'Add Logo', 'kanopi' ) }
-								</Button>
-							) }
-						/>
-					</Placeholder>
-				) }
+						) : (
+							<Placeholder
+								icon="groups"
+								label={ __( 'Logos', 'kanopi' ) }
+								instructions={ __( 'Add logos to display in this section.', 'kanopi' ) }
+							>
+								<MediaUpload
+									onSelect={ onSelectLogo }
+									allowedTypes={ [ 'image' ] }
+									render={ ( { open } ) => (
+										<Button variant="primary" onClick={ open }>
+											{ __( 'Add Logo', 'kanopi' ) }
+										</Button>
+									) }
+								/>
+							</Placeholder>
+						) }
+				</div>
 			</div>
 		</>
 	);

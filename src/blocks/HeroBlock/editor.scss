@@ -30,6 +30,11 @@
 		.hero-title {
 			margin-top: 0;
 			margin-bottom: 1rem;
+			text-align: left;
+			font-weight: 500;
+			font-size: 60px;
+			line-height: 77px;
+
 		}
 		
 		.hero-content-text {
@@ -44,6 +49,10 @@
 			
 			.components-button {
 				margin: 0;
+			}
+			.primary {
+				background: #191A23 !important;
+				border-radius: 14px;
 			}
 		}
 	}

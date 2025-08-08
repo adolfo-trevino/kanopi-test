@@ -7,10 +7,18 @@
 	}
 	
 	.logos-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-		gap: 2rem;
-		justify-items: center;
+		
+		@media screen and (min-width: 1024px) {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+			column-gap: 2rem;
+			justify-items: center;
+			align-items: center;
+			gap: 3.7rem;
+		}
+		@media screen and (min-width: 1200px) {
+			grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+		}
 		
 		.logo-item {
 			text-align: center;

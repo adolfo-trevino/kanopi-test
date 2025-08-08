@@ -125,68 +125,70 @@ export default function Edit( { attributes, setAttributes } ) {
 				) ) }
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="testimonials-header">
-					<RichText
-						tagName="h2"
-						value={ title }
-						onChange={ ( value ) => setAttributes( { title: value } ) }
-						placeholder={ __( 'Section Title', 'kanopi' ) }
-						className="testimonials-title"
-					/>
-					<RichText
-						tagName="p"
-						value={ description }
-						onChange={ ( value ) => setAttributes( { description: value } ) }
-						placeholder={ __( 'Section Description', 'kanopi' ) }
-						className="testimonials-description"
-					/>
-				</div>
-				<div className="testimonials-grid">
-					{ testimonials.map( ( testimonial, index ) => (
-						<div key={ index } className="testimonial">
-							<div className="testimonial-content">
-								<div className="testimonial-quote">
-									<RichText
-										tagName="p"
-										value={ testimonial.quote }
-										onChange={ ( value ) => updateTestimonial( index, 'quote', value ) }
-										placeholder={ __( 'Testimonial Quote', 'kanopi' ) }
-										className="testimonial-quote-text"
-									/>
-								</div>
-								<div className="testimonial-author">
-									{ testimonial.imageUrl ? (
-										<div className="author-image">
-											<img src={ testimonial.imageUrl } alt={ testimonial.name } />
-										</div>
-									) : (
-										<div className="author-placeholder">
-											<Placeholder
-												icon="format-image"
-												label={ __( 'Author Photo', 'kanopi' ) }
-											/>
-										</div>
-									) }
-									<div className="author-info">
-										<RichText
-											tagName="h3"
-											value={ testimonial.name }
-											onChange={ ( value ) => updateTestimonial( index, 'name', value ) }
-											placeholder={ __( 'Author Name', 'kanopi' ) }
-											className="author-name"
-										/>
+				<div className="container">
+					<div className="testimonials-header">
+						<RichText
+							tagName="h2"
+							value={ title }
+							onChange={ ( value ) => setAttributes( { title: value } ) }
+							placeholder={ __( 'Section Title', 'kanopi' ) }
+							className="testimonials-title"
+						/>
+						<RichText
+							tagName="p"
+							value={ description }
+							onChange={ ( value ) => setAttributes( { description: value } ) }
+							placeholder={ __( 'Section Description', 'kanopi' ) }
+							className="testimonials-description"
+						/>
+					</div>
+					<div className="testimonials-grid">
+						{ testimonials.map( ( testimonial, index ) => (
+							<div key={ index } className="testimonial">
+								<div className="testimonial-content">
+									<div className="testimonial-quote">
 										<RichText
 											tagName="p"
-											value={ testimonial.title }
-											onChange={ ( value ) => updateTestimonial( index, 'title', value ) }
-											placeholder={ __( 'Author Title', 'kanopi' ) }
-											className="author-title"
+											value={ testimonial.quote }
+											onChange={ ( value ) => updateTestimonial( index, 'quote', value ) }
+											placeholder={ __( 'Testimonial Quote', 'kanopi' ) }
+											className="testimonial-quote-text"
 										/>
+									</div>
+									<div className="testimonial-author">
+										{ testimonial.imageUrl ? (
+											<div className="author-image">
+												<img src={ testimonial.imageUrl } alt={ testimonial.name } />
+											</div>
+										) : (
+											<div className="author-placeholder">
+												<Placeholder
+													icon="format-image"
+													label={ __( 'Author Photo', 'kanopi' ) }
+												/>
+											</div>
+										) }
+										<div className="author-info">
+											<RichText
+												tagName="h3"
+												value={ testimonial.name }
+												onChange={ ( value ) => updateTestimonial( index, 'name', value ) }
+												placeholder={ __( 'Author Name', 'kanopi' ) }
+												className="author-name"
+											/>
+											<RichText
+												tagName="p"
+												value={ testimonial.title }
+												onChange={ ( value ) => updateTestimonial( index, 'title', value ) }
+												placeholder={ __( 'Author Title', 'kanopi' ) }
+												className="author-title"
+											/>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					) ) }
+						) ) }
+					</div>
 				</div>
 			</div>
 		</>

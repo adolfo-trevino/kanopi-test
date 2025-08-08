@@ -1,5 +1,5 @@
-import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl, Button, Icon } from '@wordpress/components';
+import { useBlockProps, RichText, InspectorControls, MediaUpload } from '@wordpress/block-editor';
+import { PanelBody, TextControl, TextareaControl, Button, Icon, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -7,7 +7,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { services, title, description } = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'wp-block-knopi-services',
+		className: 'wp-block-kanopi-services',
 	} );
 
 	const updateService = ( index, field, value ) => {
@@ -18,9 +18,10 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const addService = () => {
 		const newServices = [ ...services, {
-			icon: 'admin-tools',
+			imageId: 0,
+			imageUrl: '',
 			title: 'New Service',
-			description: 'Description for new service'
+			cardType: 'green'
 		} ];
 		setAttributes( { services: newServices } );
 	};
@@ -60,21 +61,59 @@ export default function Edit( { attributes, setAttributes } ) {
 						title={ `${ __( 'Service', 'kanopi' ) } ${ index + 1 }` }
 						initialOpen={ false }
 					>
-						<TextControl
-							label={ __( 'Icon', 'kanopi' ) }
-							value={ service.icon }
-							onChange={ ( value ) => updateService( index, 'icon', value ) }
-							help={ __( 'Enter a Dashicon name (e.g., admin-tools, admin-customizer)', 'kanopi' ) }
+						<MediaUpload
+							onSelect={ ( media ) => {
+								updateService( index, 'imageId', media.id );
+								updateService( index, 'imageUrl', media.url );
+							} }
+							allowedTypes={ [ 'image' ] }
+							value={ service.imageId }
+							render={ ( { open } ) => (
+								<Button 
+									onClick={ open }
+									variant="secondary"
+									style={ { marginTop: '10px', marginBottom: '10px' } }
+								>
+									{ service.imageUrl ? __( 'Replace Image', 'kanopi' ) : __( 'Upload Image', 'kanopi' ) }
+								</Button>
+							) }
 						/>
-						<TextControl
-							label={ __( 'Title', 'kanopi' ) }
+						{ service.imageUrl && (
+							<div style={ { marginBottom: '10px' } }>
+								<img 
+									src={ service.imageUrl } 
+									alt={ __( 'Service Image', 'kanopi' ) }
+									style={ { maxWidth: '100%', height: 'auto' } }
+								/>
+								<Button 
+									onClick={ () => {
+										updateService( index, 'imageId', 0 );
+										updateService( index, 'imageUrl', '' );
+									} }
+									variant="secondary"
+									isDestructive
+									style={ { marginTop: '5px' } }
+								>
+									{ __( 'Remove Image', 'kanopi' ) }
+								</Button>
+							</div>
+						) }
+						<RichText
+							tagName="div"
 							value={ service.title }
 							onChange={ ( value ) => updateService( index, 'title', value ) }
+							placeholder={ __( 'Service Title', 'kanopi' ) }
+							className="service-title-input"
 						/>
-						<TextareaControl
-							label={ __( 'Description', 'kanopi' ) }
-							value={ service.description }
-							onChange={ ( value ) => updateService( index, 'description', value ) }
+						<SelectControl
+							label={ __( 'Card Type', 'kanopi' ) }
+							value={ service.cardType || 'green' }
+							options={ [
+								{ label: __( 'Green', 'kanopi' ), value: 'green' },
+								{ label: __( 'Black', 'kanopi' ), value: 'black' },
+								{ label: __( 'Gray', 'kanopi' ), value: 'gray' },
+							] }
+							onChange={ ( value ) => updateService( index, 'cardType', value ) }
 						/>
 						<Button 
 							variant="secondary" 
@@ -105,24 +144,37 @@ export default function Edit( { attributes, setAttributes } ) {
 				</div>
 				<div className="services-grid">
 					{ services.map( ( service, index ) => (
-						<div key={ index } className="service-item">
-							<div className="service-icon">
-								<Icon icon={ service.icon } size={ 48 } />
+						<div key={ index } className={ `service-item service-item--${ service.cardType || 'green' }` }>
+							<div className="service-content">
+								<RichText
+									tagName="h3"
+									value={ service.title }
+									onChange={ ( value ) => updateService( index, 'title', value ) }
+									placeholder={ __( 'Service Title', 'kanopi' ) }
+									className="service-title"
+								/>
+								<div className="service-learn-more">
+									<span className="learn-more-text">Learn more</span>
+									<span className="learn-more-icon">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+										</svg>
+									</span>
+								</div>
 							</div>
-							<RichText
-								tagName="h3"
-								value={ service.title }
-								onChange={ ( value ) => updateService( index, 'title', value ) }
-								placeholder={ __( 'Service Title', 'kanopi' ) }
-								className="service-title"
-							/>
-							<RichText
-								tagName="p"
-								value={ service.description }
-								onChange={ ( value ) => updateService( index, 'description', value ) }
-								placeholder={ __( 'Service Description', 'kanopi' ) }
-								className="service-description"
-							/>
+							<div className="service-image">
+								{ service.imageUrl ? (
+									<img 
+										src={ service.imageUrl } 
+										alt={ service.title }
+										style={ { maxWidth: '100%', height: 'auto' } }
+									/>
+								) : (
+									<div className="service-placeholder">
+										{ __( 'No image selected', 'kanopi' ) }
+									</div>
+								) }
+							</div>
 						</div>
 					) ) }
 				</div>

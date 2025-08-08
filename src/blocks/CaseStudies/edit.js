@@ -1,5 +1,5 @@
-import { useBlockProps, MediaUpload, RichText, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl, Button, Placeholder } from '@wordpress/components';
+import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -18,8 +18,6 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const addCaseStudy = () => {
 		const newCaseStudies = [ ...caseStudies, {
-			imageId: 0,
-			imageUrl: '',
 			title: 'New Case Study',
 			description: 'Description for new case study',
 			linkText: 'Read More',
@@ -32,11 +30,6 @@ export default function Edit( { attributes, setAttributes } ) {
 		const newCaseStudies = [ ...caseStudies ];
 		newCaseStudies.splice( index, 1 );
 		setAttributes( { caseStudies: newCaseStudies } );
-	};
-
-	const onSelectImage = ( index, media ) => {
-		updateCaseStudy( index, 'imageId', media.id );
-		updateCaseStudy( index, 'imageUrl', media.url );
 	};
 
 	return (
@@ -68,37 +61,6 @@ export default function Edit( { attributes, setAttributes } ) {
 						title={ `${ __( 'Case Study', 'kanopi' ) } ${ index + 1 }` }
 						initialOpen={ false }
 					>
-						<div style={ { marginBottom: '20px' } }>
-							{ caseStudy.imageUrl ? (
-								<>
-									<img 
-										src={ caseStudy.imageUrl } 
-										alt="" 
-										style={ { width: '100%', height: 'auto', marginBottom: '10px' } }
-									/>
-									<Button 
-										variant="secondary" 
-										onClick={ () => {
-											updateCaseStudy( index, 'imageId', 0 );
-											updateCaseStudy( index, 'imageUrl', '' );
-										} }
-										isDestructive
-									>
-										{ __( 'Remove Image', 'kanopi' ) }
-									</Button>
-								</>
-							) : (
-								<MediaUpload
-									onSelect={ ( media ) => onSelectImage( index, media ) }
-									allowedTypes={ [ 'image' ] }
-									render={ ( { open } ) => (
-										<Button variant="secondary" onClick={ open }>
-											{ __( 'Select Image', 'kanopi' ) }
-										</Button>
-									) }
-								/>
-							) }
-						</div>
 						<TextControl
 							label={ __( 'Title', 'kanopi' ) }
 							value={ caseStudy.title }
@@ -131,76 +93,55 @@ export default function Edit( { attributes, setAttributes } ) {
 				) ) }
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="case-studies-header">
-					<RichText
-						tagName="h2"
-						value={ title }
-						onChange={ ( value ) => setAttributes( { title: value } ) }
-						placeholder={ __( 'Section Title', 'kanopi' ) }
-						className="case-studies-title"
-					/>
-					<RichText
-						tagName="p"
-						value={ description }
-						onChange={ ( value ) => setAttributes( { description: value } ) }
-						placeholder={ __( 'Section Description', 'kanopi' ) }
-						className="case-studies-description"
-					/>
-				</div>
-				<div className="case-studies-grid">
-					{ caseStudies.map( ( caseStudy, index ) => (
-						<div key={ index } className="case-study-item">
-							{ caseStudy.imageUrl ? (
-								<div className="case-study-image">
-									<img src={ caseStudy.imageUrl } alt={ caseStudy.title } />
-								</div>
-							) : (
-								<div className="case-study-placeholder">
-									<Placeholder
-										icon="format-image"
-										label={ __( 'Case Study Image', 'kanopi' ) }
-										instructions={ __( 'Upload an image for this case study.', 'kanopi' ) }
-									>
-										<MediaUpload
-											onSelect={ ( media ) => onSelectImage( index, media ) }
-											allowedTypes={ [ 'image' ] }
-											render={ ( { open } ) => (
-												<Button variant="primary" onClick={ open }>
-													{ __( 'Select Image', 'kanopi' ) }
-												</Button>
-											) }
-										/>
-									</Placeholder>
-								</div>
-							) }
-							<div className="case-study-content">
-								<RichText
-									tagName="h3"
-									value={ caseStudy.title }
-									onChange={ ( value ) => updateCaseStudy( index, 'title', value ) }
-									placeholder={ __( 'Case Study Title', 'kanopi' ) }
-									className="case-study-title"
-								/>
-								<RichText
-									tagName="p"
-									value={ caseStudy.description }
-									onChange={ ( value ) => updateCaseStudy( index, 'description', value ) }
-									placeholder={ __( 'Case Study Description', 'kanopi' ) }
-									className="case-study-description"
-								/>
-								<div className="case-study-link">
+				<div className="container">
+					<div className="case-studies-header">
+						<RichText
+							tagName="h2"
+							value={ title }
+							onChange={ ( value ) => setAttributes( { title: value } ) }
+							placeholder={ __( 'Section Title', 'kanopi' ) }
+							className="case-studies-title"
+						/>
+						<RichText
+							tagName="p"
+							value={ description }
+							onChange={ ( value ) => setAttributes( { description: value } ) }
+							placeholder={ __( 'Section Description', 'kanopi' ) }
+							className="case-studies-description"
+						/>
+					</div>
+					<div className="case-studies-grid">
+						{ caseStudies.map( ( caseStudy, index ) => (
+							<div key={ index } className="case-study-item">
+								<div className="case-study-content">
 									<RichText
-										tagName="a"
-										href={ caseStudy.linkUrl }
-										value={ caseStudy.linkText }
-										onChange={ ( value ) => updateCaseStudy( index, 'linkText', value ) }
-										placeholder={ __( 'Link Text', 'kanopi' ) }
-										className="case-study-link-text"
+										tagName="h3"
+										value={ caseStudy.title }
+										onChange={ ( value ) => updateCaseStudy( index, 'title', value ) }
+										placeholder={ __( 'Case Study Title', 'kanopi' ) }
+										className="case-study-title"
 									/>
+									<RichText
+										tagName="p"
+										value={ caseStudy.description }
+										onChange={ ( value ) => updateCaseStudy( index, 'description', value ) }
+										placeholder={ __( 'Case Study Description', 'kanopi' ) }
+										className="case-study-description"
+									/>
+									<div className="case-study-link">
+										<RichText
+											tagName="a"
+											href={ caseStudy.linkUrl }
+											value={ caseStudy.linkText }
+											onChange={ ( value ) => updateCaseStudy( index, 'linkText', value ) }
+											placeholder={ __( 'Link Text', 'kanopi' ) }
+											className="case-study-link-text"
+										/>
+									</div>
 								</div>
 							</div>
-						</div>
-					) ) }
+						) ) }
+					</div>
 				</div>
 			</div>
 		</>

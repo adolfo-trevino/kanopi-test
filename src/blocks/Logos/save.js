@@ -9,13 +9,17 @@ export default function Save( { attributes } ) {
 
 	return (
 		<div { ...blockProps }>
-			<h2 className="logos-title">{ title }</h2>
-			<div className="logos-grid">
-				{ logos.map( ( logo, index ) => (
-					<div key={ index } className="logo-item" data-id={ logo.id }>
-						<img src={ logo.url } alt={ logo.alt } />
-					</div>
-				) ) }
+			<div className="container">
+				{title && <h2 className="logos-title">{ title }</h2>}
+				<div className="logos-grid">
+					{ logos.map( ( logo, index ) => (
+						logo.url && (
+							<div key={ index } className="logo-item" data-id={ logo.id } src={ logo.url } alt={ logo.alt }>
+								<img src={ logo.url } alt={ logo.alt } />
+							</div>
+						)
+					) ) }
+				</div>
 			</div>
 		</div>
 	);
