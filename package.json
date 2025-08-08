@@ -15,5 +15,8 @@
   "devDependencies": {
     "@wordpress/scripts": "^30.20.0",
     "fs-extra": "^11.3.1"
+  },
+  "dependencies": {
+    "swiper": "^11.2.10"
   }
 }

@@ -7,7 +7,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { caseStudies, title, description } = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'wp-block-knopi-case-studies',
+		className: 'wp-block-kanopi-case-studies',
 	} );
 
 	const updateCaseStudy = ( index, field, value ) => {
@@ -95,13 +95,15 @@ export default function Edit( { attributes, setAttributes } ) {
 			<div { ...blockProps }>
 				<div className="container">
 					<div className="case-studies-header">
-						<RichText
-							tagName="h2"
-							value={ title }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
-							placeholder={ __( 'Section Title', 'kanopi' ) }
-							className="case-studies-title"
-						/>
+						<div className="case-studies-title-wrapper">
+							<RichText
+								tagName="h2"
+								value={ title }
+								onChange={ ( value ) => setAttributes( { title: value } ) }
+								placeholder={ __( 'Section Title', 'kanopi' ) }
+								className="case-studies-title"
+							/>
+						</div>
 						<RichText
 							tagName="p"
 							value={ description }
@@ -115,13 +117,6 @@ export default function Edit( { attributes, setAttributes } ) {
 							<div key={ index } className="case-study-item">
 								<div className="case-study-content">
 									<RichText
-										tagName="h3"
-										value={ caseStudy.title }
-										onChange={ ( value ) => updateCaseStudy( index, 'title', value ) }
-										placeholder={ __( 'Case Study Title', 'kanopi' ) }
-										className="case-study-title"
-									/>
-									<RichText
 										tagName="p"
 										value={ caseStudy.description }
 										onChange={ ( value ) => updateCaseStudy( index, 'description', value ) }
@@ -134,9 +129,10 @@ export default function Edit( { attributes, setAttributes } ) {
 											href={ caseStudy.linkUrl }
 											value={ caseStudy.linkText }
 											onChange={ ( value ) => updateCaseStudy( index, 'linkText', value ) }
-											placeholder={ __( 'Link Text', 'kanopi' ) }
+											placeholder={ __( 'Learn more', 'kanopi' ) }
 											className="case-study-link-text"
 										/>
+										<span className="arrow-icon">→</span>
 									</div>
 								</div>
 							</div>

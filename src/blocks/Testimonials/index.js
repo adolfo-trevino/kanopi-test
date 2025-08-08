@@ -3,6 +3,8 @@ import { __ } from '@wordpress/i18n';
 import Edit from './edit';
 import Save from './save';
 import metadata from './block.json';
+import './frontend';
+import './style.scss';
 
 registerBlockType( metadata.name, {
 	title: __( 'Testimonials', 'kanopi' ),

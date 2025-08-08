@@ -24,25 +24,44 @@
       "type": "array",
       "default": [
         {
-          "number": "1",
-          "title": "Step 1",
-          "description": "Description for step 1"
+          "number": "01",
+          "title": "Consultation",
+          "description": "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
         },
         {
-          "number": "2",
-          "title": "Step 2",
-          "description": "Description for step 2"
+          "number": "02",
+          "title": "Research and Strategy Development",
+          "description": "We conduct thorough research and develop a comprehensive strategy tailored to your specific needs and goals."
         },
         {
-          "number": "3",
-          "title": "Step 3",
-          "description": "Description for step 3"
+          "number": "03",
+          "title": "Implementation",
+          "description": "Our team implements the strategy with precision and attention to detail to ensure optimal results."
+        },
+        {
+          "number": "04",
+          "title": "Monitoring and Optimization",
+          "description": "We continuously monitor performance and make necessary adjustments to optimize results."
+        },
+        {
+          "number": "05",
+          "title": "Reporting and Communication",
+          "description": "Regular reporting and clear communication keep you informed about progress and results."
+        },
+        {
+          "number": "06",
+          "title": "Continual Improvement",
+          "description": "We focus on continual improvement to ensure long-term success and growth."
         }
       ]
     },
     "title": {
       "type": "string",
       "default": "Our Working Process"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Step-by-Step Guide to Achieving Your Business Goals"
     },
     "description": {
       "type": "string",
@@ -52,6 +71,7 @@
   "example": {
     "attributes": {
       "title": "Our Working Process",
+      "subtitle": "Step-by-Step Guide to Achieving Your Business Goals",
       "description": "Discover how we work to deliver exceptional results.",
       "processSteps": [
         {
@@ -79,5 +99,6 @@
   },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-style.css"
+  "style": "file:./style-style.css",
+  "script": "file:./accordion.js"
 }

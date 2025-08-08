@@ -17,6 +17,7 @@ export default function Save( { attributes } ) {
 				<div className="our-team-grid">
 					{ teamMembers.map( ( member, index ) => (
 						<div key={ index } className="team-member">
+							<div className="linkedin-icon"></div>
 							{ member.imageUrl && (
 								<div className="team-member-image">
 									<img src={ member.imageUrl } alt={ member.name } />
