@@ -119,7 +119,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									/>
 								</div>
 								<button className="step-toggle" aria-label={index === 0 ? "Collapse" : "Expand"}>
-									<span className="toggle-icon">{index === 0 ? '−' : '+'}</span>
+									<span className="toggle-icon"></span>
 								</button>
 							</div>
 							<div className="step-content">

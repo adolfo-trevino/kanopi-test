@@ -23,10 +23,10 @@ export default function Save( { attributes } ) {
 								<h3 className="step-title">{ step.title }</h3>
 							</div>
 							<button className="step-toggle" aria-label={index === 0 ? "Collapse" : "Expand"}>
-								<span className="toggle-icon">{index === 0 ? '−' : '+'}</span>
+								<span className="toggle-icon"></span>
 							</button>
 						</div>
-						<div className="step-content" style={{display: index === 0 ? 'block' : 'none'}}>
+						<div className="step-content">
 							<div className="step-divider"></div>
 							<p className="step-description">{ step.description }</p>
 						</div>

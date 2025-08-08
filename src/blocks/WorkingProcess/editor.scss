@@ -38,12 +38,12 @@
 			overflow: hidden;
 			background-color: #f2f2f2;
 			transition: all 0.3s ease;
-			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-			border: 2px solid #e0e0e0;
+			border: 2px solid #000;
+			-webkit-box-shadow: 0px 5px 0px 0px #191A23; 
+			box-shadow: 0px 5px 0px 0px #191A23;
 			
 			&.active {
-				background-color: #d1ff7b;
-				border-color: #d1ff7b;
+				background-color: #B9FF66;				
 				
 				.step-content {
 					display: block;

@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { title, subtitle, backgroundImage, formBackgroundColor, messageType } = attributes;
+	const { title, subtitle, image, formBackgroundColor, messageType } = attributes;
 
 	const blockProps = useBlockProps( {
 		className: 'wp-block-knopi-contact-us',
@@ -16,7 +16,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const onSelectImage = (media) => {
 		setAttributes({
-			backgroundImage: {
+			image: {
 				id: media.id,
 				url: media.url,
 				alt: media.alt || '',
@@ -26,7 +26,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const removeImage = () => {
 		setAttributes({
-			backgroundImage: {},
+			image: {},
 		});
 	};
 
@@ -49,22 +49,22 @@ export default function Edit( { attributes, setAttributes } ) {
 							<MediaUpload
 								onSelect={onSelectImage}
 								allowedTypes={['image']}
-								value={backgroundImage?.id}
+								value={image?.id}
 								render={({open}) => (
 									<Button 
 										onClick={open}
-										className={!backgroundImage?.id ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+										className={!image?.id ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
 									>
-										{!backgroundImage?.id && __('Set background image', 'kanopi')}
-										{backgroundImage?.id && <img src={backgroundImage.url} alt={backgroundImage.alt} />}
+										{!image?.id && __('Set image', 'kanopi')}
+										{image?.id && <img src={image.url} alt={image.alt} />}
 									</Button>
 								)}
 							/>
 						</MediaUploadCheck>
-						{backgroundImage?.id && (
+						{image?.id && (
 							<MediaUploadCheck>
 								<Button onClick={removeImage} isLink isDestructive>
-									{__('Remove background image', 'kanopi')}
+									{__('Remove image', 'kanopi')}
 								</Button>
 							</MediaUploadCheck>
 						)}
@@ -101,51 +101,58 @@ export default function Edit( { attributes, setAttributes } ) {
 				</div>
 				<div className="contact-us-content">
 					<div className="contact-form-container" style={formStyle}>
-						<div className="message-type-selector">
-							<div className={`message-type-option ${messageType === 'sayHi' ? 'selected' : ''}`}>
-								<input
-									type="radio"
-									id="sayHi"
-									name="messageType"
-									checked={messageType === 'sayHi'}
-									onChange={() => setAttributes({ messageType: 'sayHi' })}
-								/>
-								<label htmlFor="sayHi">{__('Say Hi', 'kanopi')}</label>
+						<div className="contact-form-wrapper">
+							<div className="message-type-selector">
+								<div className={`message-type-option ${messageType === 'sayHi' ? 'selected' : ''}`}>
+									<input
+										type="radio"
+										id="sayHi"
+										name="messageType"
+										checked={messageType === 'sayHi'}
+										onChange={() => setAttributes({ messageType: 'sayHi' })}
+									/>
+									<label htmlFor="sayHi">{__('Say Hi', 'kanopi')}</label>
+								</div>
+								<div className={`message-type-option ${messageType === 'getQuote' ? 'selected' : ''}`}>
+									<input
+										type="radio"
+										id="getQuote"
+										name="messageType"
+										checked={messageType === 'getQuote'}
+										onChange={() => setAttributes({ messageType: 'getQuote' })}
+									/>
+									<label htmlFor="getQuote">{__('Get a Quote', 'kanopi')}</label>
+								</div>
 							</div>
-							<div className={`message-type-option ${messageType === 'getQuote' ? 'selected' : ''}`}>
-								<input
-									type="radio"
-									id="getQuote"
-									name="messageType"
-									checked={messageType === 'getQuote'}
-									onChange={() => setAttributes({ messageType: 'getQuote' })}
-								/>
-								<label htmlFor="getQuote">{__('Get a Quote', 'kanopi')}</label>
+							<form className="contact-form-fields">
+								<div className="form-field">
+									<label htmlFor="name">{__('Name', 'kanopi')}</label>
+									<input type="text" id="name" placeholder={__('Name', 'kanopi')} />
+								</div>
+								<div className="form-field">
+									<label htmlFor="email">{__('Email', 'kanopi')}<span className="required">*</span></label>
+									<input type="email" id="email" placeholder={__('Email', 'kanopi')} required />
+								</div>
+								<div className="form-field">
+									<label htmlFor="message">{__('Message', 'kanopi')}<span className="required">*</span></label>
+									<textarea id="message" placeholder={__('Message', 'kanopi')} required></textarea>
+								</div>
+								<button type="submit" className="submit-button">
+									{__('Send Message', 'kanopi')}
+								</button>
+							</form>
+							<div className="decorative-elements">
+								<div className="star-element star-dark"></div>
+								<div className="star-element star-light"></div>
+								<div className="lines-element"></div>
 							</div>
-						</div>
-						<form className="contact-form-fields">
-							<div className="form-field">
-								<label htmlFor="name">{__('Name', 'kanopi')}</label>
-								<input type="text" id="name" placeholder={__('Name', 'kanopi')} />
-							</div>
-							<div className="form-field">
-								<label htmlFor="email">{__('Email', 'kanopi')}<span className="required">*</span></label>
-								<input type="email" id="email" placeholder={__('Email', 'kanopi')} required />
-							</div>
-							<div className="form-field">
-								<label htmlFor="message">{__('Message', 'kanopi')}<span className="required">*</span></label>
-								<textarea id="message" placeholder={__('Message', 'kanopi')} required></textarea>
-							</div>
-							<button type="submit" className="submit-button">
-								{__('Send Message', 'kanopi')}
-							</button>
-						</form>
-						<div className="decorative-elements">
-							<div className="star-element star-dark"></div>
-							<div className="star-element star-light"></div>
-							<div className="lines-element"></div>
 						</div>
 					</div>
+					{image?.url && (
+						<div className="contact-image-container">
+							<img src={image.url} alt={image.alt || ''} />
+						</div>
+					)}
 				</div>
 			</div>
 		</>

@@ -41,7 +41,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		@media screen and (min-width: 1024px) {
+			justify-content: flex-end;
+			
+		}
 		
+		img {
+			max-width: 50%;
+			height: auto;
+			border-radius: 1rem;
+		}
 	}
 
 	.banner-foreground-image {

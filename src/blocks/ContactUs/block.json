@@ -28,7 +28,7 @@
       "type": "string",
       "default": "Connect with Us: Let's Discuss Your Digital Marketing Needs"
     },
-    "backgroundImage": {
+    "image": {
       "type": "object",
       "default": {}
     },

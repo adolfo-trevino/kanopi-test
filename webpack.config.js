@@ -16,6 +16,7 @@ module.exports = {
 		'blocks/CaseStudies/style': path.resolve( __dirname, 'src/blocks/CaseStudies/style.scss' ),
 		'blocks/WorkingProcess/index': path.resolve( __dirname, 'src/blocks/WorkingProcess/index.js' ),
 		'blocks/WorkingProcess/style': path.resolve( __dirname, 'src/blocks/WorkingProcess/style.scss' ),
+		'blocks/WorkingProcess/accordion': path.resolve( __dirname, 'src/blocks/WorkingProcess/accordion.js' ),
 		'blocks/OurTeam/index': path.resolve( __dirname, 'src/blocks/OurTeam/index.js' ),
 		'blocks/OurTeam/style': path.resolve( __dirname, 'src/blocks/OurTeam/style.scss' ),
 		'blocks/Testimonials/index': path.resolve( __dirname, 'src/blocks/Testimonials/index.js' ),
