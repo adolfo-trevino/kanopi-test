@@ -50,12 +50,7 @@
 			}
 			&.active {
 				background-color: #B9FF66;
-				
-				
-				.step-content {
-					display: block;
-				}
-				
+				padding-bottom: 15px;
 				.step-toggle {
 					.toggle-icon {
 						&::before {
@@ -118,8 +113,10 @@
 			}
 			
 			.step-content {
-				padding: 0 2rem 2rem;
-				display: none;
+				padding: 0 2rem 0 2rem;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease, padding 0.3s ease;
 				
 				.step-divider {
 					height: 1px;
@@ -131,6 +128,11 @@
 					margin: 0;
 					line-height: 1.6;
 				}
+			}
+			
+			&.active .step-content {
+				padding: 0 2rem 2rem 2rem;
+				max-height: 500px; // Adjust this value based on your content
 			}
 		}
 	}
@@ -155,7 +157,7 @@
 				}
 				
 				.step-content {
-					padding: 0 1.5rem 1.5rem;
+					padding: 0 1.5rem 1.5rem 1.5rem;
 				}
 			}
 		}
