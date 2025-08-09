@@ -126,6 +126,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				) ) }
 			</InspectorControls>
 			<div { ...blockProps }>
+				<div className="container">
 				<div className="services-header">
 					<RichText
 						tagName="h2"
@@ -179,6 +180,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							</div>
 						</div>
 					) ) }
+				</div>
 				</div>
 			</div>
 		</>

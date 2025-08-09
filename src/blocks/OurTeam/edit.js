@@ -125,74 +125,76 @@ export default function Edit( { attributes, setAttributes } ) {
 				) ) }
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="our-team-header">
-					<RichText
-						tagName="h2"
-						value={ title }
-						onChange={ ( value ) => setAttributes( { title: value } ) }
-						placeholder={ __( 'Section Title', 'kanopi' ) }
-						className="our-team-title"
-					/>
-					<RichText
-						tagName="p"
-						value={ description }
-						onChange={ ( value ) => setAttributes( { description: value } ) }
-						placeholder={ __( 'Section Description', 'kanopi' ) }
-						className="our-team-description"
-					/>
-				</div>
-				<div className="our-team-grid">
-					{ teamMembers.map( ( member, index ) => (
-						<div key={ index } className="team-member">
-							<div className="linkedin-icon"></div>
-							{ member.imageUrl ? (
-								<div className="team-member-image">
-									<img src={ member.imageUrl } alt={ member.name } />
+				<div className="container">
+					<div className="our-team-header">
+						<RichText
+							tagName="h2"
+							value={ title }
+							onChange={ ( value ) => setAttributes( { title: value } ) }
+							placeholder={ __( 'Section Title', 'kanopi' ) }
+							className="our-team-title"
+						/>
+						<RichText
+							tagName="p"
+							value={ description }
+							onChange={ ( value ) => setAttributes( { description: value } ) }
+							placeholder={ __( 'Section Description', 'kanopi' ) }
+							className="our-team-description"
+						/>
+					</div>
+					<div className="our-team-grid">
+						{ teamMembers.map( ( member, index ) => (
+							<div key={ index } className="team-member">
+								<div className="linkedin-icon"></div>
+								{ member.imageUrl ? (
+									<div className="team-member-image">
+										<img src={ member.imageUrl } alt={ member.name } />
+									</div>
+								) : (
+									<div className="team-member-placeholder">
+										<Placeholder
+											icon="format-image"
+											label={ __( 'Team Member Photo', 'kanopi' ) }
+											instructions={ __( 'Upload a photo for this team member.', 'kanopi' ) }
+										>
+											<MediaUpload
+												onSelect={ ( media ) => onSelectImage( index, media ) }
+												allowedTypes={ [ 'image' ] }
+												render={ ( { open } ) => (
+													<Button variant="primary" onClick={ open }>
+														{ __( 'Select Image', 'kanopi' ) }
+													</Button>
+												) }
+											/>
+										</Placeholder>
+									</div>
+								) }
+								<div className="team-member-content">
+									<RichText
+										tagName="h3"
+										value={ member.name }
+										onChange={ ( value ) => updateTeamMember( index, 'name', value ) }
+										placeholder={ __( 'Team Member Name', 'kanopi' ) }
+										className="team-member-name"
+									/>
+									<RichText
+										tagName="p"
+										value={ member.title }
+										onChange={ ( value ) => updateTeamMember( index, 'title', value ) }
+										placeholder={ __( 'Team Member Title', 'kanopi' ) }
+										className="team-member-title"
+									/>
+									<RichText
+										tagName="p"
+										value={ member.description }
+										onChange={ ( value ) => updateTeamMember( index, 'description', value ) }
+										placeholder={ __( 'Team Member Description', 'kanopi' ) }
+										className="team-member-description"
+									/>
 								</div>
-							) : (
-								<div className="team-member-placeholder">
-									<Placeholder
-										icon="format-image"
-										label={ __( 'Team Member Photo', 'kanopi' ) }
-										instructions={ __( 'Upload a photo for this team member.', 'kanopi' ) }
-									>
-										<MediaUpload
-											onSelect={ ( media ) => onSelectImage( index, media ) }
-											allowedTypes={ [ 'image' ] }
-											render={ ( { open } ) => (
-												<Button variant="primary" onClick={ open }>
-													{ __( 'Select Image', 'kanopi' ) }
-												</Button>
-											) }
-										/>
-									</Placeholder>
-								</div>
-							) }
-							<div className="team-member-content">
-								<RichText
-									tagName="h3"
-									value={ member.name }
-									onChange={ ( value ) => updateTeamMember( index, 'name', value ) }
-									placeholder={ __( 'Team Member Name', 'kanopi' ) }
-									className="team-member-name"
-								/>
-								<RichText
-									tagName="p"
-									value={ member.title }
-									onChange={ ( value ) => updateTeamMember( index, 'title', value ) }
-									placeholder={ __( 'Team Member Title', 'kanopi' ) }
-									className="team-member-title"
-								/>
-								<RichText
-									tagName="p"
-									value={ member.description }
-									onChange={ ( value ) => updateTeamMember( index, 'description', value ) }
-									placeholder={ __( 'Team Member Description', 'kanopi' ) }
-									className="team-member-description"
-								/>
 							</div>
-						</div>
-					) ) }
+						) ) }
+					</div>
 				</div>
 			</div>
 		</>

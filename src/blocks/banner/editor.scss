@@ -24,7 +24,19 @@
 
 	.banner-text {
 		flex: 1;
-		max-width: 600px;
+		max-width: 500px;
+		.banner-title {
+			font-size: 2.5rem;
+			font-weight: 500;
+			margin-bottom: 1.5rem;
+			line-height: 1.2;
+		}
+		.banner-content {
+			font-size: 1.125rem;
+			line-height: 1.6;
+			margin-bottom: 2rem;
+			font-weight: 300;
+		}
 	}
 
 	.banner-image {
@@ -32,7 +44,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		position: relative;
+		@media screen and (min-width: 1024px) {
+			justify-content: flex-end;
+			
+		}
+		
+		img {
+			max-width: 50%;
+			height: auto;
+			border-radius: 1rem;
+		}
 	}
 
 	.banner-foreground-image {

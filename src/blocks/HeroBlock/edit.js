@@ -76,7 +76,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					</PanelBody>	
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="container">
+			
 					<div className="hero-content">
 						<RichText
 							tagName="h1"
@@ -128,7 +128,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							</Button>
 						)}
 					</div>
-				</div>
+			
 			</div>
 		</>
 	);

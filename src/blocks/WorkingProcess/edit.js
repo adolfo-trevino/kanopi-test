@@ -33,7 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<>
-		<div className="container">
+		
 			<InspectorControls>
 				<PanelBody title={ __( 'Working Process Settings', 'kanopi' ) }>
 					<TextControl
@@ -88,55 +88,57 @@ export default function Edit( { attributes, setAttributes } ) {
 				) ) }
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="working-process-header">
-					<RichText
-						tagName="h2"
-						value={ title }
-						onChange={ ( value ) => setAttributes( { title: value } ) }
-						placeholder={ __( 'Section Title', 'kanopi' ) }
-						className="working-process-title"
-					/>
-					<RichText
-						tagName="p"
-						value={ description }
-						onChange={ ( value ) => setAttributes( { description: value } ) }
-						placeholder={ __( 'Section Description', 'kanopi' ) }
-						className="working-process-description"
-					/>
-				</div>
-				<div className="working-process-steps">
-					{ processSteps.map( ( step, index ) => (
-						<div key={ index } className={`working-process-step ${index === 0 ? 'active' : ''}`}>
-							<div className="step-header">
-								<div className="step-title-container">
-									<span className="step-number">{step.number}</span>
+				<div className="container">
+					<div className="working-process-header">
+						<RichText
+							tagName="h2"
+							value={ title }
+							onChange={ ( value ) => setAttributes( { title: value } ) }
+							placeholder={ __( 'Section Title', 'kanopi' ) }
+							className="working-process-title"
+						/>
+						<RichText
+							tagName="p"
+							value={ description }
+							onChange={ ( value ) => setAttributes( { description: value } ) }
+							placeholder={ __( 'Section Description', 'kanopi' ) }
+							className="working-process-description"
+						/>
+					</div>
+					<div className="working-process-steps">
+						{ processSteps.map( ( step, index ) => (
+							<div key={ index } className={`working-process-step ${index === 0 ? 'active' : ''}`}>
+								<div className="step-header">
+									<div className="step-title-container">
+										<span className="step-number">{step.number}</span>
+										<RichText
+											tagName="h3"
+											value={ step.title }
+											onChange={ ( value ) => updateProcessStep( index, 'title', value ) }
+											placeholder={ __( 'Step Title', 'kanopi' ) }
+											className="step-title"
+										/>
+									</div>
+									<button className="step-toggle" aria-label={index === 0 ? "Collapse" : "Expand"}>
+										<span className="toggle-icon"></span>
+									</button>
+								</div>
+								<div className="step-content">
+									<div className="step-divider"></div>
 									<RichText
-										tagName="h3"
-										value={ step.title }
-										onChange={ ( value ) => updateProcessStep( index, 'title', value ) }
-										placeholder={ __( 'Step Title', 'kanopi' ) }
-										className="step-title"
+										tagName="p"
+										value={ step.description }
+										onChange={ ( value ) => updateProcessStep( index, 'description', value ) }
+										placeholder={ __( 'Step Description', 'kanopi' ) }
+										className="step-description"
 									/>
 								</div>
-								<button className="step-toggle" aria-label={index === 0 ? "Collapse" : "Expand"}>
-									<span className="toggle-icon"></span>
-								</button>
 							</div>
-							<div className="step-content">
-								<div className="step-divider"></div>
-								<RichText
-									tagName="p"
-									value={ step.description }
-									onChange={ ( value ) => updateProcessStep( index, 'description', value ) }
-									placeholder={ __( 'Step Description', 'kanopi' ) }
-									className="step-description"
-								/>
-							</div>
-						</div>
-					) ) }
+						) ) }
+					</div>
 				</div>
 			</div>
-			</div>
+			
 		</>
 	);
 }

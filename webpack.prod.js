@@ -1,5 +1,34 @@
 const path = require( 'path' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const fs = require( 'fs-extra' );
+
+// Theme files to include in production build
+const themeFiles = [
+	'functions.php',
+	'style.css',
+	'theme.css',
+	'theme.json'
+];
+
+// Directories to include in production build
+const themeDirectories = [
+	'blocks',
+	'patterns',
+	'templates'
+];
+
+// Development files/directories to exclude
+const devFiles = [
+	'src',
+	'node_modules',
+	'scripts',
+	'webpack.config.js',
+	'webpack.prod.js',
+	'.git',
+	'.gitignore',
+	'package.json',
+	'package-lock.json'
+];
 
 module.exports = {
 	...defaultConfig,
@@ -33,4 +62,50 @@ module.exports = {
 	},
 	mode: 'production',
 	devtool: false, // Exclude source maps for production
+	plugins: [
+		...defaultConfig.plugins || [],
+		// Custom plugin to copy theme directories and exclude dev files
+		{
+			apply: ( compiler ) => {
+				compiler.hooks.done.tap( 'CopyThemeDirectories', () => {
+					// Copy theme files
+					themeFiles.forEach( file => {
+						const srcPath = path.resolve( __dirname, file );
+						const destPath = path.resolve( __dirname, 'dist', file );
+						if ( fs.existsSync( srcPath ) ) {
+							fs.copySync( srcPath, destPath );
+							console.log( `Copied file: ${file}` );
+						}
+					} );
+					
+					// Copy theme directories
+					themeDirectories.forEach( dir => {
+						const srcPath = path.resolve( __dirname, dir );
+						const destPath = path.resolve( __dirname, 'dist', dir );
+						if ( fs.existsSync( srcPath ) ) {
+							fs.copySync( srcPath, destPath );
+							console.log( `Copied directory: ${dir}` );
+						}
+					} );
+					
+					// Copy build/blocks to dist/build/blocks
+					const buildBlocksSrc = path.resolve( __dirname, 'build/blocks' );
+					const buildBlocksDest = path.resolve( __dirname, 'dist/build/blocks' );
+					if ( fs.existsSync( buildBlocksSrc ) ) {
+						fs.copySync( buildBlocksSrc, buildBlocksDest );
+						console.log( 'Copied build/blocks to dist/build/blocks' );
+					}
+					
+					// Remove dev files from dist (if any were copied)
+					devFiles.forEach( file => {
+						const filePath = path.resolve( __dirname, 'dist', file );
+						if ( fs.existsSync( filePath ) ) {
+							fs.removeSync( filePath );
+							console.log( `Removed dev file/directory: ${file}` );
+						}
+					} );
+				} );
+			}
+		}
+	]
 };
