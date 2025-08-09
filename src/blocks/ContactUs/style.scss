@@ -7,7 +7,15 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 3rem;
-		
+		flex-direction: column;
+		gap: 1rem;
+		align-items: flex-start;
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
+		@media (min-width: 1440px) {
+			margin-bottom: 4.5rem;
+		}
 
 			
 			.contact-us-title {

@@ -3,61 +3,27 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
-	background-size: cover;
-	background-position: center;
+	flex-direction: row;
+	@media (min-width: 1024px) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
 	.container {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
+		flex-wrap: wrap;
 	}
 	
 	.hero-image {
-		width: 50%;
+		@media(min-width: 1024px) {
+			width: 50%;
+		}
+		
 		&.hero-image--position-left {
 			order: -1;
 		}
 		
-	}
-	.hero-content {
-		width: 50%;
-		text-align: center;
-		padding: 2rem;
-		background-color: rgba(255, 255, 255, 0.8);
-		border-radius: 8px;
-
-		
-		.hero-title {
-			margin-top: 0;
-			margin-bottom: 1rem;
-			text-align: left;
-			font-weight: 500;
-			font-size: 60px;
-			line-height: 77px;
-
-		}
-		
-		.hero-content-text {
-			margin-top: 0;
-			margin-bottom: 1.5rem;
-		}
-		
-		.hero-buttons {
-			display: flex;
-			gap: 1rem;
-			justify-content: center;
-			
-			.components-button {
-				margin: 0;
-			}
-			.primary {
-				background: #191A23 !important;
-				border-radius: 14px;
-			}
-		}
-	}
-
-	.hero-image {
 		.components-button {
 			margin: 0.5rem;
 		}
@@ -66,6 +32,66 @@
 			max-width: 100%;
 			height: auto;
 			display: block;
+		}
+	}
+	.hero-content {
+		text-align: center;
+		padding: 2rem 0;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 8px;		
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2rem;
+		@media(min-width: 1024px) {
+			width: 50%;
+			padding: 2rem;
+		}
+		
+		.hero-title {
+			margin-top: 0;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 50px;
+			line-height: 65px;
+			text-align: left;
+			margin-bottom: 0;
+			@media(min-width: 1024px) {
+				font-size: 60px;
+				line-height: 77px;
+			}
+		}
+		
+		.hero-content-text {
+			margin-top: 0;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 20px;
+			text-align: left;
+		}
+		
+		.hero-buttons {
+			display: flex;
+			gap: 1rem;
+			justify-content: center;
+
+			@media(max-width: 768px) {
+					width: 100%;
+					align-items: center;
+				}
+			.components-button {
+				margin: 0;
+			}
+			
+			.components-button.primary {
+				background-color: #000;
+				color: white;
+				border-radius: 14px;
+				padding: 14px 35px;
+				font-weight: 400;
+				font-size: 20px;
+				border: 1px solid #000;
+			}
 		}
 	}
 }
