@@ -101,7 +101,9 @@
 					margin-top: 1.5rem;
 					
 					.author-info {
-						
+						@media (max-width: 768px) {
+							padding: 0 1rem;
+						}
 						.author-name {
 							margin: 0;
 							font-size: 1.2rem;
