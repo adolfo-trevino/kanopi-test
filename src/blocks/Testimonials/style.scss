@@ -59,8 +59,11 @@
 					padding: 2rem;
 					position: relative;
 					margin-bottom: 2rem;
-					border: 1px solid #B9FF66;
 					background-color: #191A23;
+					@media(min-width: 768px) {
+						padding: 2.5rem;
+					
+					border: 1px solid #B9FF66;
 					&:before {
 							content: '';
 							position: absolute;
@@ -82,7 +85,7 @@
 							background-color: #9ef01a;
 							clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
 						}
-	
+					}
 					
 					.testimonial-quote-text {
 						margin: 0;

@@ -11,11 +11,26 @@ export default function Save( { attributes } ) {
 		<div { ...blockProps }>
 			<div className="container">
 				{title && <h2 className="logos-title">{ title }</h2>}
+				{/* Hidden container for WordPress to source attributes */}
+				<div className="logos-source" style={{ display: 'none' }}>
+					{ logos.map( ( logo, index ) => (
+						logo.url && (
+							<img 
+								key={ index } 
+								className="logo-item" 
+								data-id={ logo.id } 
+								src={ logo.url } 
+								alt={ logo.alt } 
+							/>
+						)
+					) ) }
+				</div>
+				
 				{/* Desktop grid layout */}
 				<div className="logos-grid">
 					{ logos.map( ( logo, index ) => (
 						logo.url && (
-							<div key={ index } className="logo-item" data-id={ logo.id } src={ logo.url } alt={ logo.alt }>
+							<div key={ index } className="logo-display-item">
 								<img src={ logo.url } alt={ logo.alt } />
 							</div>
 						)
@@ -27,7 +42,7 @@ export default function Save( { attributes } ) {
 						<div className="swiper-wrapper">
 							{ logos.map( ( logo, index ) => (
 								logo.url && (
-									<div key={ index } className="swiper-slide logo-item" data-id={ logo.id } src={ logo.url } alt={ logo.alt }>
+									<div key={ index } className="swiper-slide">
 										<img src={ logo.url } alt={ logo.alt } />
 									</div>
 								)

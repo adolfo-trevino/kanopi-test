@@ -6,6 +6,11 @@
 		margin-bottom: 2rem;
 	}
 	
+	/* Hidden source container */
+	.logos-source {
+		display: none;
+	}
+	
 	/* Desktop grid layout */
 	.logos-grid {
 		display: none;
@@ -22,7 +27,7 @@
 			grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
 		}
 		
-		.logo-item {
+		.logo-display-item {
 			text-align: center;
 			
 			img {

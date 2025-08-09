@@ -6,6 +6,11 @@
 		margin-bottom: 2rem;
 	}
 	
+	/* Hidden source container */
+	.logos-source {
+		display: none;
+	}
+	
 	/* Desktop preview */
 	.logos-grid {
 		display: grid;
@@ -17,7 +22,7 @@
 			display: none;
 		}
 		
-		.logo-item {
+		.logo-display-item {
 			text-align: center;
 			
 			img {

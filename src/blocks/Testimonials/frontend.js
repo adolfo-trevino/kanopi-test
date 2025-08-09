@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     testimonialSliders.forEach(slider => {
       const swiper = new Swiper(slider, {
         modules: [Navigation, Pagination, Autoplay],
-        slidesPerView: 1.5,
+        slidesPerView: 1,
         spaceBetween: 30,
         centeredSlides: true,
         loop: true,

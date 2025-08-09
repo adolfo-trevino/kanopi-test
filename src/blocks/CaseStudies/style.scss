@@ -76,6 +76,7 @@
 					font-size: 1.125rem;
 					line-height: 1.6;
 					font-weight: 400;
+					color: #fff;
 				}
 				
 				.case-study-link {
@@ -123,7 +124,7 @@
 			
 			.case-study-item {
 				padding: 1.5rem 0;
-				
+				color: #fff;
 				&:not(:last-child)::after {
 					right: 0;
 					bottom: 0;
@@ -156,44 +157,43 @@
 		.swiper {
 			padding: 2rem 0;
 			
-			.swiper-slide {
-				.case-study-item {
-					padding: 0 1rem;
+			.swiper-slide.case-study-item {
+				padding: 0 1rem;
+				
+				.case-study-content {
+					color: #fff;
 					
-					.case-study-content {
+					p.case-study-description {
+						margin-top: 0;
+						margin-bottom: 2rem;
+						font-size: 1.125rem;
+						line-height: 1.6;
+						font-weight: 400;
 						color: #fff;
+					}
+					
+					.case-study-link {
+						display: flex;
+						align-items: center;
 						
-						.case-study-description {
-							margin-top: 0;
-							margin-bottom: 2rem;
+						a.case-study-link-text {
+							color: #B9FF66;
+							text-decoration: none;
+							font-weight: 600;
 							font-size: 1.125rem;
-							line-height: 1.6;
-							font-weight: 400;
+							margin-right: 0.5rem;
+							
+							&:hover {
+								text-decoration: underline;
+							}
 						}
 						
-						.case-study-link {
-							display: flex;
-							align-items: center;
-							
-							.case-study-link-text {
-								color: #c1f880;
-								text-decoration: none;
-								font-weight: 600;
-								font-size: 1.125rem;
-								margin-right: 0.5rem;
-								
-								&:hover {
-									text-decoration: underline;
-								}
-							}
-							
-							.arrow-icon {
-								color: #c1f880;
-								font-size: 1.25rem;
-								line-height: 1;
-								display: inline-block;
-								transform: translateY(1px);
-							}
+						.arrow-icon {
+							color: #B9FF66;
+							font-size: 1.25rem;
+							line-height: 1;
+							display: inline-block;
+							transform: translateY(1px);
 						}
 					}
 				}

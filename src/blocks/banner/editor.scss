@@ -17,6 +17,9 @@
 		gap: 2rem;
 		border-radius: 2rem;
 		padding: 1rem 2rem;
+		@media screen and (min-width: 1024px) {
+			padding: 1rem 4rem;
+		}
 	}
 
 	.banner-text {
@@ -65,7 +68,11 @@
 		border-radius: 4px;
 		transition: background-color 0.3s ease;
 		cursor: pointer;
-
+		@media screen and (max-width: 768px) {
+			    width: 100%;
+				display: flex;
+				justify-content: center;
+		}
 		&:hover {
 			background-color: #333333;
 		}
