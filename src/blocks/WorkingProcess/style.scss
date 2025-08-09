@@ -126,8 +126,9 @@
 				
 				.step-divider {
 					height: 1px;
-					background-color: rgba(0, 0, 0, 0.1);
+					background-color:transparent;
 					margin-bottom: 1.5rem;
+					
 				}
 				
 				.step-description {
@@ -139,6 +140,9 @@
 			&.active .step-content {
 				padding: 0 2rem 2rem 2rem;
 				max-height: 500px; // Adjust this value based on your content
+			}
+			&.active .step-divider {
+				background-color: rgba(0, 0, 0, 0.1);
 			}
 		}
 	}
@@ -162,9 +166,7 @@
 					}
 				}
 				
-				.step-content {
-					padding: 0 1.5rem 1.5rem 1.5rem;
-				}
+			
 			}
 		}
 	}
