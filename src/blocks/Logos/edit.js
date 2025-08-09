@@ -69,22 +69,39 @@ export default function Edit( { attributes, setAttributes } ) {
 						className="logos-title"
 					/>
 						{ logos.length > 0 ? (
-							<div className="logos-grid">
-								{ logos.map( ( logo, index ) => (
-									logo.url && (
-										<div key={ index } className="logo-item">
-											<img src={ logo.url } alt={ logo.alt } />
-											<Button 
-												variant="secondary" 
-												onClick={ () => removeLogo( index ) }
-												style={ { marginTop: '5px' } }
-											>
-												{ __( 'Remove', 'kanopi' ) }
-										</Button>
+							<>
+								{/* Desktop preview */}
+								<div className="logos-grid">
+									{ logos.map( ( logo, index ) => (
+										logo.url && (
+											<div key={ index } className="logo-item">
+												<img src={ logo.url } alt={ logo.alt } />
+												<Button 
+													variant="secondary" 
+													onClick={ () => removeLogo( index ) }
+													style={ { marginTop: '5px' } }
+												>
+													{ __( 'Remove', 'kanopi' ) }
+												</Button>
+											</div>
+										)
+									) ) }
+								</div>
+								{/* Mobile preview */}
+								<div className="logos-swiper">
+									<div className="swiper">
+										<div className="swiper-wrapper">
+											{ logos.map( ( logo, index ) => (
+												logo.url && (
+													<div key={ index } className="swiper-slide logo-item">
+														<img src={ logo.url } alt={ logo.alt } />
+													</div>
+												)
+											) ) }
 										</div>
-									)
-								) ) }
-							</div>
+									</div>
+								</div>
+							</>
 						) : (
 							<Placeholder
 								icon="groups"

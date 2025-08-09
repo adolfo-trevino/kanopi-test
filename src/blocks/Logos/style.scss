@@ -6,7 +6,9 @@
 		margin-bottom: 2rem;
 	}
 	
+	/* Desktop grid layout */
 	.logos-grid {
+		display: none;
 		
 		@media screen and (min-width: 1024px) {
 			display: grid;
@@ -28,6 +30,35 @@
 				height: auto;
 				max-height: 100px;
 				object-fit: contain;
+			}
+		}
+	}
+	
+	/* Mobile swiper layout */
+	.logos-swiper {
+		display: block;
+		
+		@media screen and (min-width: 1024px) {
+			display: none;
+		}
+		
+		.swiper {
+			padding: 0 20px;
+			
+			.swiper-wrapper {
+				align-items: center;
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				width: auto;
+				
+				img {
+					max-width: 100%;
+					height: auto;
+					max-height: 100px;
+					object-fit: contain;
+				}
 			}
 		}
 	}

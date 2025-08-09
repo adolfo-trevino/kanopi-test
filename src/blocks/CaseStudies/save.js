@@ -16,6 +16,7 @@ export default function Save( { attributes } ) {
 					</div>
 					<p className="case-studies-description">{ description }</p>
 				</div>
+				{/* Desktop grid layout */}
 				<div className="case-studies-grid">
 					{ caseStudies.map( ( caseStudy, index ) => (
 						<div key={ index } className="case-study-item">
@@ -29,6 +30,25 @@ export default function Save( { attributes } ) {
 							</div>
 						</div>
 					) ) }
+				</div>
+				{/* Mobile swiper layout */}
+				<div className="case-studies-swiper">
+					<div className="swiper">
+						<div className="swiper-wrapper">
+							{ caseStudies.map( ( caseStudy, index ) => (
+								<div key={ index } className="swiper-slide case-study-item">
+									<div className="case-study-content">
+										<p className="case-study-description">{ caseStudy.description }</p>
+										<div className="case-study-link">
+											<a href={ caseStudy.linkUrl } className="case-study-link-text">
+												{ caseStudy.linkText } <span className="arrow-icon">→</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							) ) }
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -112,6 +112,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							className="case-studies-description"
 						/>
 					</div>
+					{/* Desktop preview */}
 					<div className="case-studies-grid">
 						{ caseStudies.map( ( caseStudy, index ) => (
 							<div key={ index } className="case-study-item">
@@ -137,6 +138,37 @@ export default function Edit( { attributes, setAttributes } ) {
 								</div>
 							</div>
 						) ) }
+					</div>
+					{/* Mobile preview */}
+					<div className="case-studies-swiper">
+						<div className="swiper">
+							<div className="swiper-wrapper">
+								{ caseStudies.map( ( caseStudy, index ) => (
+									<div key={ index } className="swiper-slide case-study-item">
+										<div className="case-study-content">
+											<RichText
+												tagName="p"
+												value={ caseStudy.description }
+												onChange={ ( value ) => updateCaseStudy( index, 'description', value ) }
+												placeholder={ __( 'Case Study Description', 'kanopi' ) }
+												className="case-study-description"
+											/>
+											<div className="case-study-link">
+												<RichText
+													tagName="a"
+													href={ caseStudy.linkUrl }
+													value={ caseStudy.linkText }
+													onChange={ ( value ) => updateCaseStudy( index, 'linkText', value ) }
+													placeholder={ __( 'Learn more', 'kanopi' ) }
+													className="case-study-link-text"
+												/>
+												<span className="arrow-icon">→</span>
+											</div>
+										</div>
+									</div>
+								) ) }
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
