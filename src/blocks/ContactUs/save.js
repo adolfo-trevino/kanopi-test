@@ -19,8 +19,8 @@ export default function Save( { attributes } ) {
 				</div>
 				<p className="contact-us-subtitle">{ subtitle }</p>
 			</div>
-			<div className="contact-us-content">
-				<div className="contact-form-container" style={formStyle}>
+			<div className="contact-us-content" style={formStyle}>
+				<div className="contact-form-container" >
 					<div className="contact-form-wrapper">
 						<div className="message-type-selector">
 							<div className={`message-type-option ${messageType === 'sayHi' ? 'selected' : ''}`}>

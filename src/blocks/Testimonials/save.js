@@ -21,9 +21,9 @@ export default function Save( { attributes } ) {
 						<div className="swiper-wrapper">
 							{ testimonials.map( ( testimonial, index ) => (
 								<div key={ index } className="swiper-slide">
-									<div className="testimonial">
+									<div className="testimonial"> 
 										<div className="testimonial-content">
-											<div className="testimonial-quote">
+											<div className="testimonial-quote">												
 												<p className="testimonial-quote-text">{ testimonial.quote }</p>
 											</div>
 											<div className="testimonial-author">

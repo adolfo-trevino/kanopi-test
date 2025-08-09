@@ -56,24 +56,37 @@
 			
 			.testimonial-content {
 				.testimonial-quote {
-					background-color: #2a2b36;
-					border-radius: 1rem;
+					color: #fff;
+					border-radius: 2rem;
 					padding: 2rem;
 					position: relative;
 					margin-bottom: 2rem;
+					border: 1px solid #B9FF66;
+					background-color: #191A23;
+
+						&:before {
+						content: '';
+						position: absolute;
+						bottom: -21px;                 /* Positioned to extend the border */
+						left: 53px;                    /* Aligned with main triangle + border offset */
+						width: 36px;                   /* Larger than main triangle (30px + 6px border) */
+						height: 23px;              /* Larger than main triangle (20px + 3px border) */
+						background-color: #191A23;
+						clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+						z-index: 999;		
+					}
 					
 					&:after {
 						content: '';
 						position: absolute;
-						bottom: -15px;
-						left: 50%;
-						transform: translateX(-50%);
-						width: 0;
-						height: 0;
-						border-left: 15px solid transparent;
-						border-right: 15px solid transparent;
-						border-top: 15px solid #2a2b36;
+						bottom: -23px;                 /* Positioned to extend the border */
+						left: 53px;                    /* Aligned with main triangle + border offset */
+						width: 36px;                   /* Larger than main triangle (30px + 6px border) */
+						height: 23px;                  /* Larger than main triangle (20px + 3px border) */
+						background-color: #9ef01a;
+						clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
 					}
+				
 					
 					.testimonial-quote-text {
 						margin: 0;

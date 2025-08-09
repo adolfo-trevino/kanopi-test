@@ -146,9 +146,9 @@ export default function Edit( { attributes, setAttributes } ) {
 					
 					<div className="testimonials-slider-container">
 						<div className="swiper testimonials-slider">
-							<div className="swiper-wrapper">
+							<div className="">
 								{ testimonials.map( ( testimonial, index ) => (
-									<div key={ index } className="swiper-slide">
+									<div key={ index } className="">
 										<div className="testimonial">
 											<div className="testimonial-content">
 												<div className="testimonial-quote">
@@ -184,7 +184,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								) ) }
 							</div>
 							
-							<div className="swiper-button-prev"></div>
+							<div className="swiper-button-prev"></div> 
 							<div className="swiper-button-next"></div>
 							<div className="swiper-pagination"></div>
 						</div>
