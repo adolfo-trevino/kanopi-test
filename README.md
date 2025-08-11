@@ -1,56 +1,93 @@
-# Kanopi Theme - Production Deployment Guide
+# Kanopi Theme
 
-This document explains how to build and deploy the theme for production.
+A modern WordPress theme built with Gutenberg blocks and webpack, based on the [Positivus Landing Page Design](https://www.figma.com/community/file/1230604708032389430/positivus-landing-page-design) Figma template.
+
+## Technical Overview
+
+This theme leverages WordPress's block editor (Gutenberg) to create a flexible, component-based landing page experience. The build system uses webpack to process JavaScript and SCSS files, ensuring optimized production assets.
+
+### Key Technical Decisions
+
+**1. Gutenberg Block Architecture**
+- **Decision**: Built the entire landing page using custom Gutenberg blocks instead of traditional PHP templates
+- **Rationale**: Provides better content editing flexibility, component reusability, and future-proofs the theme for WordPress's block-first direction
+- **Implementation**: Each section of the landing page (hero, features, testimonials, etc.) is a custom block with its own JavaScript and CSS
+
+**2. Webpack Build System**
+- **Decision**: Implemented webpack for asset compilation and optimization
+- **Rationale**: Enables modern JavaScript (ES6+), SCSS preprocessing, code splitting, and asset optimization
+- **Benefits**: 
+  - Tree shaking for smaller bundle sizes
+  - Hot module replacement during development
+  - Automatic CSS and JS minification for production
+  - Source maps for easier debugging
+
+**3. SCSS Architecture**
+- **Decision**: Used SCSS for styling with a modular approach
+
 
 ## Development Workflow
 
-1. **Development Build**: During development, use the standard build process:
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+- WordPress development environment
+
+### Setup Instructions
+
+1. **Clone and Install Dependencies**
+   ```bash
+   git clone [repository-url]
+   cd kanopi-theme
+   npm install
+   ```
+
+2. **Development Build** - Standard build process for development:
    ```bash
    npm run build
    ```
+   This command:
+   - Compiles SCSS to CSS
+   - Transpiles modern JavaScript
+   - Generates source maps
+   - Creates development-ready assets in `/build`
 
-2. **Development Server**: For active development with hot reloading:
-   ```bash
-   npm start
-   ```
 
-## Production Deployment
 
-To create a production-ready build that excludes development files:
+## Assumptions
 
-1. **Create Production Build**:
-   ```bash
-   npm run build:prod
-   ```
+- **Production Readiness**: The webpack build process generates production-ready files with proper optimization and minification
+- **WordPress Compatibility**: Built for WordPress 6.0+ with full Gutenberg support
+- **Modern Browser Support**: Targets ES6-compatible browsers (IE11+ with polyfills)
+- **Performance**: Assumes users want optimized assets with minimal HTTP requests
 
-2. **Package for Deployment**:
-   ```bash
-   npm run package
-   ```
+## Current Limitations & Future Improvements
 
-This creates a `dist/` directory containing only the files needed for production:
-- Compiled block assets (JS, CSS)
-- PHP files
-- Theme files (style.css, theme.json)
-- Templates and patterns
+### With More Time, I Would Implement:
 
-## What's Excluded from Production
+**1. Pixel-Perfect Design Fidelity**
+- Implement precise spacing and typography matching the Figma design
+- Add responsive breakpoint refinements
+- Include custom icon fonts or SVG sprite system
 
-The following files/directories are excluded from the production package:
-- `src/` - Source files (only compiled assets are included)
-- `node_modules/` - Development dependencies
-- `webpack.config.js` - Build configuration
-- `webpack.prod.js` - Production build configuration
-- `scripts/` - Packaging scripts
-- `.git/` - Version control files
-- `package.json` - Development configuration
+**2. Enhanced WYSIWYG Experience**
+- Create more sophisticated block controls in the WordPress editor
+- Add live preview functionality within the block editor
+- Implement drag-and-drop reordering for layout blocks
 
-## Deploying to Production
+**3. Animation & Interaction Layer**
+- Add CSS animations and transitions for improved user experience
+- Implement scroll-triggered animations using Intersection Observer API
+- Include micro-interactions for buttons and form elements
 
-1. After running `npm run package`, the `dist/` directory contains everything needed for production
-2. Upload the contents of `dist/` to your WordPress themes directory
-3. The theme will work without any development dependencies
+**4. Advanced Features**
+- Dynamic content loading for testimonials/case studies
+- Contact form integration with validation
+- SEO optimization with structured data
+- Performance monitoring and analytics integration
 
-## Customizing the Build
+## Resources
 
-To modify what files are included in the production package, edit `scripts/package.js`.
+- [Figma Design Template](https://www.figma.com/community/file/1230604708032389430/positivus-landing-page-design)
+- [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+- [Webpack Documentation](https://webpack.js.org/)# kanopi-test
