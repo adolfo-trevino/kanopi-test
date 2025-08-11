@@ -9,11 +9,8 @@
 // Register the block
 function kanopi_register_current_date_block() {
     register_block_type(
-        'kanopi/current-date',
+        __DIR__ . '/../build/blocks/current-date',
         array(
-            'editor_script' => 'kanopi-current-date-block-editor',
-            'editor_style'  => 'kanopi-current-date-block-editor',
-            'style'         => 'kanopi-current-date-block',
             'render_callback' => 'kanopi_render_current_date_block',
         )
     );
@@ -26,5 +23,5 @@ function kanopi_render_current_date_block( $attributes, $content ) {
     $current_date = date('F j, Y');
     
     // Return the HTML for the block
-    return '<!-- wp:paragraph {"className":"current-date"} --><p class="current-date">' . $current_date . '</p><!-- /wp:paragraph -->';
+    return '<div class="wp-block-kanopi-current-date"><p class="current-date">' . $current_date . '</p></div>';
 }

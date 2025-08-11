@@ -26,6 +26,8 @@ module.exports = {
 		'blocks/Testimonials/frontend': path.resolve( __dirname, 'src/blocks/Testimonials/frontend.js' ),
 		'blocks/ContactUs/index': path.resolve( __dirname, 'src/blocks/ContactUs/index.js' ),
 		'blocks/ContactUs/style': path.resolve( __dirname, 'src/blocks/ContactUs/style.scss' ),
+		'blocks/current-date/index': path.resolve( __dirname, 'src/blocks/current-date/index.js' ),
+		'blocks/current-date/style': path.resolve( __dirname, 'src/blocks/current-date/style.scss' ),
 	},
 	output: {
 		path: path.resolve( __dirname, 'build' ),
